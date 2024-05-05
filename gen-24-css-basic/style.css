@@ -2,13 +2,32 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    scroll-behavior: smooth;
 }
+
 
 body{
     height: 100%;
 }
 
 /* Header */
+
+header{
+    color: white;
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
 .manu-btn{
     color: #424144;
     font-size: 23px;
@@ -28,30 +47,78 @@ body{
 
 .navbar .logo h1{
     color: hsl(143, 93%, 16%);
-
 }
 
-.navbar .manu li{
+.navbar .menu li{
     list-style: none;
     display: inline-block;
 }
 
-.navbar .manu li a{
+.navbar .menu li a{
     display: block;
     margin-left: 20px;
-    color: #424144;
+    color: #37363a;
     border-bottom: 4px solid transparent;
     text-decoration: none;
     font-size: 20px;
-    font-weight: bold;
 }
-.navbar.manu li .active{
+.navbar.menu li .active{
     border-bottom: 4px solid #f63e43;
 }
 
-.navbar .manu li a i{
+.navbar .btn li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .btn li a{
+    display: block;
+    color: #37363a;
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+}
+.navbar .btn li .active{
+    border-bottom: 4px solid #f63e43;
+}
+
+.navbar .menu li a i{
     color: #f63e4e;
 }
-.navbar .manu li a:hover{
+.navbar .menu li a:hover{
     border-bottom: 4px solid #f63e4e;
 }
+
+.navbar .search .form-control{
+    padding: absolute;
+    border-radius: 7px;
+    width: 250px;
+}
+
+
+
+
+.content{
+    background-color: rgb(255, 228, 228);
+    background-image: url(1.jpg);
+    background-size: 200vh 50vh;
+    background-repeat: no-repeat;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: rgb(12, 73, 12);
+    height: 50vh;
+}
+
+.content button{
+    margin-top: 30px;
+    padding: 15px 30px;
+    border: none;
+    background: green;
+    cursor: pointer;
+    color: white;
+}
+
+.pheading {
+    margin: 50px 0;
+} 
