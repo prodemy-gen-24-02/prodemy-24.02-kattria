@@ -17,18 +17,18 @@ header{
     background-color: green;
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    font-size: 12px;
 }
 .left{
-    padding: 5px 20px;
+    padding: 10px 20px;
     text-align: left;
 }
 .center{
-    padding: 5px 20px;
+    padding: 10px 20px;
     text-align: center;
 }
 .right{
-    padding: 5px 20px;
+    padding: 10px 20px;
     text-align: right;
 }
 .manu-btn{
@@ -52,13 +52,32 @@ header{
     color: hsl(143, 93%, 16%);
 }
 
+/*Menu*/
+
 .navbar .menu li{
     list-style: none;
     display: inline-block;
 }
-
 .navbar .menu li a{
-    display: block;
+    display: flex;
+    margin-left: 20px;
+    color: #37363a;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.4s ease;
+}
+.navbar .menu li a:hover{
+    color: #888;
+}
+
+.navbar .menu .category{
+    list-style: none;
+    display: inline-block;
+}
+
+.navbar .menu .category a{
+    display: flex;
     margin-left: 20px;
     color: #37363a;
     border-bottom: 4px solid transparent;
@@ -66,30 +85,15 @@ header{
     font-size: 15px;
     font-weight: bold;
 }
-.navbar.menu li .active{
-    border-bottom: 4px solid #f63e43;
+
+.navbar .menu .category span{
+    padding: 1px 5px;
+}
+.navbar .menu .category a:hover{
+    border-bottom: 4px solid #381bbb;
 }
 
-.navbar .btn li{
-    list-style: none;
-    display: inline-block;
-}
-.navbar .btn li a{
-    display: block;
-    color: #37363a;
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-}
-.navbar .btn li .active{
-    border-bottom: 4px solid #f63e43;
-}
-
-.navbar .menu li a i{
-    color: #f63e4e;
-}
-.navbar .menu li a:hover{
-    border-bottom: 4px solid #f63e4e;
-}
+/*search*/
  
 .navbar .search {
     position: relative;
@@ -119,34 +123,60 @@ header{
     color: #888;
 }
 
+/* Btn Account*/
+.navbar .btn li{
+    list-style: none;
+    display: inline-block;
+    justify-content: space-between;
+} 
+.navbar .btn li a{
+    display: flex;
+    color: #37363a;
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.4s ease;
+}
+.navbar .btn li a:hover{
+    color: #888;
+}
+
 .content{
     background-color: rgb(255, 228, 228);
     background-image: url(1.jpg);
-    background-size: 200vh 50vh;
+    background-size: 200vh 95vh;
     background-repeat: no-repeat;
-    padding: 0 5%;
+    padding: 0 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     color: rgb(12, 73, 12);
-    height: 50vh;
-    font-size: 22px;
+    height: 95vh;
+    font-size: 32px;
+    line-height: 1.5;
+}
+.content .desc{
+    padding: 35px 0;
+    line-height: 1.5;
+    font-size: 20px;
 }
 
 .content button{
-    margin-top: 30px;
-    padding: 15px 30px;
+    padding: 20px 60px;
     border: none;
-    background: green;
+    background:rgb(12, 73, 12);
     cursor: pointer;
     color: white;
-    border-radius: 20px;
+    border-radius: 40px;
     font-weight: bold;
+    font-size: 16px;
+    transition: all 0.4s ease;
 }
 .content button:hover{
     background-color: white;
-    color: green;
+    color: rgb(12, 73, 12);
 }
 
 .pheading {
@@ -158,23 +188,77 @@ header{
     padding: 10px 5%;
 }
 
+.category{
+    display: grid;
+    grid-template-columns: repeat(auto-fit);
+}
+
+.category .card{
+    width: 200px;
+    background-color: #424144;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.category .card .desc{
+    position:absolute;
+    padding: 20px 50px;
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+}
+.category .card img{
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+  
+}
+.category .card  img:hover{
+    -webkit-transform: scale(1.25) ;
+    transform: scale(1.25);
+}
+
 .products{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px,auto));
 }
 
 .products .card{
+    position: relative;
     width: 260px;
     background-color: #f5f5f5;
     /* box-shadow: 0 10px 20px rgba(0,0,0,0.3); */
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 20px;
+    transition: all 0.4s;
+}
+.products .card:hover{
+    transform: scale(0.9);
 }
 
 .products .card img{
     height: 250px;
     width: 100%;
+}
+
+
+.products .card .heart-icon{
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    background-color: #f0eded;
+    padding: 10px 10px;
+    border-radius: 100px;
+}
+
+.products .card .heart-icon:hover{
+    color: red;
+}
+
+.products .card .ratting {
+    padding: 10px 20px;
+    color: #ff8c00;
 }
 
 
@@ -195,11 +279,18 @@ header{
     font-weight: bold;
     padding: 10px ;
 }
+
+.products .card .box .price-span{
+    font-size: 13px;
+    position: relative;
+    top: -5px;
+}
 .products .card .desc{
     font-size: 12px;
     padding: 0px 20px;
     opacity: 0.8;
 }
+
 
 .products .card .icon{
     padding: 5px 15px;
@@ -221,7 +312,8 @@ header{
 
 .service{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
 }
 
 .service .card{
@@ -230,6 +322,10 @@ header{
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     border-radius: 5px;
     margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+.service .card:hover{
+    transform: scale(0.9);
 }
 
 .service .card img{
