@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Shopcart</title>
+  </head>
+
+  <body>
+    <header>
+      <p class="left">+00123456780</p>
+      <p class="center">50% off Selected Items | Shop Now</p>
+      <p class="right">Eng Location</p>
+    </header>
+
+    <nav class="navbar">
+      <div class="logo">
+        <h1>
+          <i class="fas fa-shopping-cart"></i>
+          <span> Shopcart </span>
+        </h1>
+      </div>
+
+      <ul class="menu">
+        <li class="category">
+          <a href="" class="active" data-toggle="dropdown"
+            >Categories
+            <span class="fa fa-caret-down" title="Toggle dropdown menu"></span
+          ></a>
+        </li>
+        <!-- </ul>
+      <ul class="menu2"> -->
+        <li><a href="">Deals</a></li>
+        <li><a href="">What's New</a></li>
+        <li><a href="">Delivery</a></li>
+      </ul>
+
+      <div class="search">
+        <input type="text" placeholder="Search Product" />
+        <button type="submit"><i class="fa fa-search"> </i></button>
+      </div>
+
+      <ul class="btn">
+        <li>
+          <a href=""> <i class="fa fa-user"></i> Account </a>
+        </li>
+        <li>
+          <a href=""> <i class="fa fa-shopping-cart"></i> Cart</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="content">
+      <h1>
+        Grab Upto 50% Off On <br />
+        Selected Headphone
+      </h1>
+      <p class="desc">
+        Shopping is a bit of a relaxing hobby for me, which <br />is sometimes
+        troubling for the bank balance.
+      </p>
+      <button>Buy Now</button>
+    </section>
+
+    <section class="sec">
+      <!-- <h2 class="pheading">Shop Our Top Category</h2>
+
+      <div class="category">
+        <div class="card">
+          <div class="desc">Furniture</div>
+          <div class="img"><img src="11.jpg" alt="" /></div>
+        </div>
+      </div> -->
+
+      <h2 class="pheading">Headphones For You!</h2>
+
+      <div class="products">
+        <!-- card start -->
+        <div class="card">
+          <div class="img"><img src="2.jpg" alt="" /></div>
+          <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="box">
+            <div class="title">Bose BT Earphones</div>
+            <div class="price">
+              <span class="price-span">$</span>500<span class="price-span"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc">Table with purifier, stained verner/black</div>
+          <div class="ratting">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- card end -->
+
+        <!-- card start -->
+        <div class="card">
+          <div class="img">
+            <img src="3.jpg" alt="" />
+          </div>
+          <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="box">
+            <div class="title">HIFI Stereo</div>
+            <div class="price">
+              <span class="price-span">$</span>500<span class="price-span"
+                >.00</span
+              >
+            </div>
+          </div>
+
+          <div class="desc">Bluethooth Hheadphone Music Headset Fm</div>
+          <div class="ratting">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- card end -->
+
+        <!-- card start -->
+        <div class="card">
+          <div class="img">
+            <img src="4.png" alt="" />
+          </div>
+          <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="box">
+            <div class="title">Zebronics Zeb-Thunder</div>
+            <div class="price">
+              <span class="price-span">$</span>500<span class="price-span"
+                >.00</span
+              >
+            </div>
+          </div>
+
+          <div class="desc">Wireless BT Headphone with Buit-In Fm</div>
+          <div class="ratting">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- card end -->
+
+        <!-- card start -->
+        <div class="card">
+          <div class="img">
+            <img src="5.webp" alt="" />
+          </div>
+          <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="box">
+            <div class="title">Sony Headphone</div>
+            <div class="price">
+              <span class="price-span">$</span>500<span class="price-span"
+                >.00</span
+              >
+            </div>
+          </div>
+
+          <div class="desc">Headphone with memory card slot</div>
+          <div class="ratting">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- card end -->
+
+        <!-- card start -->
+        <div class="card">
+          <div class="img">
+            <img src="6.png" alt="" />
+          </div>
+          <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="box">
+            <div class="title">Wireless Headphone P9</div>
+            <div class="price">
+              <span class="price-span">$</span>500<span class="price-span"
+                >.00</span
+              >
+            </div>
+          </div>
+
+          <div class="desc">Hidden Mic Memory Card Support</div>
+          <div class="ratting">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- card end -->
+
+        <!-- card start -->
+        <div class="card">
+          <div class="img">
+            <img src="7.jpg" alt="" />
+          </div>
+          <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="box">
+            <div class="title">Stereo Headphone</div>
+            <div class="price">
+              <span class="price-span">$</span>500<span class="price-span"
+                >.00</span
+              >
+            </div>
+          </div>
+
+          <div class="desc">Table with purifier, stained verner/black</div>
+          <div class="ratting">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- card end -->
+
+        <!-- card start -->
+        <div class="card">
+          <div class="img">
+            <img src="8.jpg" alt="" />
+          </div>
+          <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="box">
+            <div class="title">Bose BT Earphones</div>
+            <div class="price">
+              <span class="price-span">$</span>500<span class="price-span"
+                >.00</span
+              >
+            </div>
+          </div>
+
+          <div class="desc">Table with purifier, stained verner/black</div>
+          <div class="ratting">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- card end -->
+
+        <!-- card start -->
+        <div class="card">
+          <div class="img">
+            <img src="9.jpg" alt="" />
+          </div>
+          <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="box">
+            <div class="title">Bose BT Earphones</div>
+            <div class="price">
+              <span class="price-span">$</span>500<span class="price-span"
+                >.00</span
+              >
+            </div>
+          </div>
+
+          <div class="desc">Table with purifier, stained verner/black</div>
+          <div class="ratting">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- card end -->
+      </div>
+
+      <h2 class="pheading">Service To Help You Shop</h2>
+
+      <div class="service">
+        <!-- card start -->
+        <div class="card">
+          <div class="title">Frequently Asked Questions</div>
+          <div class="desc">Updates on safe Shopping in our store</div>
+          <div class="img">
+            <img src="fas.png" alt="" />
+          </div>
+        </div>
+        <!-- card end -->
+        <!-- card start -->
+        <div class="card">
+          <div class="title">Online Payment Process</div>
+          <div class="desc">Updates on safe Shopping in our Stores</div>
+          <div class="img">
+            <img src="12.webp" alt="" />
+          </div>
+        </div>
+        <!-- card end -->
+        <!-- card start -->
+        <div class="card">
+          <div class="title">Home Delivery Options</div>
+          <div class="desc">Updates on safe Shopping in our store</div>
+          <div class="img">
+            <img src="13.jpg" alt="" />
+          </div>
+        </div>
+        <!-- card end -->
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="contact-info">
+        <div class="first-info">
+          <h1>
+            <i class="fas fa-shopping-cart"></i>
+            <span> Shopcart </span>
+          </h1>
+          <p>
+            Amet minim mollit non deserunt ullamco est sit aliqua <br />
+            dolor do amet sint. Velit officia consequat duis enim velit<br />
+            mollit.
+          </p>
+          <p>Contact</p>
+          <div class="social-icon">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="second-info">
+          <h4>Department</h4>
+          <p>Fashion</p>
+          <p>Education Product</p>
+          <p>Frozen Food</p>
+          <p>Beverages</p>
+          <p>Organic Grocery</p>
+        </div>
+
+        <div class="thrid-info">
+          <h4>About us</h4>
+          <p>About shopcart</p>
+          <p>Careers</p>
+          <p>News & Blog</p>
+          <p>Help</p>
+        </div>
+
+        <div class="fourth-info">
+          <h4>Services</h4>
+          <p>Gift Card</p>
+          <p>Mobile App</p>
+          <p>Shipping & Delivery</p>
+        </div>
+
+        <div class="five">
+          <h4>Help</h4>
+          <p>Shopcart Help</p>
+          <p>Returns</p>
+          <p>Track orders</p>
+          <p>Contact us</p>
+          <p>Feedback</p>
+          <p>Security & Frau</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>All Right reserved by Musemind ui/ux design agency | 2022</p>
+    </footer>
+  </body>
+</html>
