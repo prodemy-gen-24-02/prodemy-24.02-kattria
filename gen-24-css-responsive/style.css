@@ -125,21 +125,31 @@ header{
 }
 
 /* Btn Account*/
-.navbar .btn li{
+.navbar .btn {
     list-style: none;
-    display: inline-block;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
 } 
-.navbar .btn li a{
+.navbar .btn a{
     display: flex;
     color: #37363a;
     border-bottom: 4px solid transparent;
     text-decoration: none;
     font-weight: bold;
     font-size: 15px;
+    margin-right: 10px;
     transition: all 0.4s ease;
+    
 }
-.navbar .btn li a:hover{
+.navbar .btn a:hover{
+    color: #888;
+}
+
+/* .navbar .btn .bx-menu i::before{
+    
+} */
+.navbar .btn .bx-menu i:hover{
     color: #888;
 }
 
@@ -314,12 +324,12 @@ header{
 
 .service{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit,minmax(280px,auto));
     gap: 2rem;
 }
 
 .service .card{
-    width: 350px;
+    width: 300px;
     background-color: #f5f5f5;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     border-radius: 5px;
@@ -332,7 +342,7 @@ header{
 
 .service .card img{
     padding: 30px 0 0 0;
-    height: 250px;
+    height: 200px;
     width: 100%;
 }
 
@@ -411,6 +421,95 @@ footer p {
     text-transform: capitalize;
     font-weight: bold;
 }
+
+/* Responsive-css */
+@media screen and (max-width:600px){
+    /* phone */
+    .navbar .search{
+        display: none;
+        transition: all 0.4s;
+    }
+    .content h1{
+        font-size: 30px;
+        transition: 0.4s;
+    }
+    .content .desc{
+        font-size: 12px;
+        transition: 0.4s;
+    }
+    .content button{
+        font-size: 10px;
+        padding: 10px 20px;
+        transition: 0.4s;
+    }
+     /* .products .card{
+        width: 200px;
+        background-color: #f5f5f5;
+        /* box-shadow: 0 10px 20px rgba(0,0,0,0.3); */
+        /* border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 20px;
+        transition: all 0.4s;
+    }
+    .products .card img{
+        height: 190px;
+        width: 100%; 
+    } */
+    
+}
+
+@media screen and (max-width:768px){
+    /* tablet */
+    header{
+        padding: 20px 3%;
+        transition: .4s;
+    }
+    .navbar{
+        padding: 20px 3%;
+        transition: .4s;
+    }
+    .navbar .menu{
+        display: hidden;
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 300px;
+        height: 130vh;
+        background-color: beige;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 120px 30px;
+        transition: all 0.4s;
+    }
+    .navbar .menu a{
+        display: block;
+        margin:18px 0;
+    }
+    .navbar .btn .bx-menu{
+        display: flex;
+    }
+    .navbar.open{
+        right: 0;
+    }
+    .content h1{
+        font-size: 40px;
+        transition: 0.4s;
+    }
+    .content .desc{
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    .content button{
+        font-size: 14px;
+        padding: 10px 20px;
+        transition: 0.4s;
+    }
+}
+
+
+   
+
 
 
 
