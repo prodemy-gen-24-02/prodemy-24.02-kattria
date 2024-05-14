@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Product Page</title>
+  </head>
+  <body>
+    <section class="navbar shadow overflow-hidden">
+      <nav class="navbar flex py-5 px-20 justify-between items-center">
+        <div class="logo ">
+          <img
+            class="w-50 "
+            src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
+            alt="logo"
+          />
+        </div>
+        <div class="menu">
+          <ul class="flex text-sm font-bold transition-all">
+            <li class="category">
+              <a
+                href=""
+                class="active ml-5 hover:text-slate-500"
+                data-toggle="dropdown"
+                >Categories<span
+                  class="fa fa-caret-down"
+                  title="Toggle dropdown menu"
+                ></span
+              ></a>
+            </li>
+            <li class="ml-5 hover:text-slate-500"><a href="">Deals</a></li>
+            <li class="ml-5 hover:text-slate-500"><a href="">What's New</a></li>
+            <li class="ml-5 hover:text-slate-500"><a href="">Delivery</a></li>
+          </ul>
+        </div>
+        <div class="search relative inline-block">
+          <input
+            type="text"
+            placeholder="Search Product"
+            class="p-3 w-64 rounded-3xl bg-slate-50 hover:w-96"
+          />
+          <button
+            type="submit"
+            class="absolute top-3.5 right-4 bg-transparent border-none"
+          >
+            <i class="fa fa-search"> </i>
+          </button>
+        </div>
+        <div class="acc">
+          <a href="" class="mr-5 text-sm font-bold hover:text-slate-500">
+            <i class="fa fa-user"></i> Account
+          </a>
+          <a href="" class="mr-5 text-sm font-bold hover:text-slate-500">
+            <i class="fa fa-shopping-cart"></i> Cart</a
+          >
+
+          <div class="bx-menu" id="menu-icon" class="mr-5 text-sm font-bold">
+            <i class="fa-solid fa-bars hidden"></i>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <section class="product ml-20 lg:ml-10 ml-10 ml-5 mr-10">
+      <p class="text-slate-700 mt-5">
+        Electronics / Audio /Headphones / Shop Headphones by type /
+        <span class="text-slate-950 font-bold"> airpods-max</span>
+      </p>
+      <div class="container justify-center items-center lg:flex md:flex flex-cols">
+        <div class="left w-96">
+          <div class="main-image">
+            <img
+              class="lg:h-96 md:h-96 h-78 mt-10 bg-slate-200 rounded-xl"
+              src="4.png"
+              alt="image"
+            />
+          </div>
+          <div class="option flex justify-between mt-5">
+            <div
+              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear "
+            >
+              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
+            </div>
+            <div
+              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear "
+            >
+              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
+            </div>
+            <div
+              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear "
+            >
+              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
+            </div>
+            <div
+              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear"
+            >
+              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
+            </div>
+            <div
+              class="small-img lg:w-48 md:w-28 w-20 overflow-hidden hover:scale-125 duration-75 ease-linear "
+            >
+              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
+            </div>
+          </div>
+        </div>
+
+        <div class="right mt-10 lg:ml-20 ml-10">
+          <!-- -----Detail---- -->
+          <div class="title shadow-sm pb-3.5">
+            <h3 class="font-bold lg:text-3xl text-xl">Airpods-Max</h3>
+            <p class="text-xs lg:pt-2.5 pt-1 pb-2 ">
+              a perfect balance of exhilarating high-flidelity audio and the
+              <br />
+              effortless magic of AirPods
+            </p>
+            <div class="ratting text-xs text-green-900">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="text-black">(121)</span>
+            </div>
+          </div>
+          <div class="price  shadow-sm lg:pt-2.5 pb-2.5 pt-1 pb-1">
+            <h4 class="font-bold lg:text-xl text-base">
+              $549.00 or 99.99/moth
+            </h4>
+            <p class="text-xs lg:pt-1.5 pb-2 pt-1 pb-1">
+              Suggested payments with 6 moths special financing
+            </p>
+          </div>
+
+          <!-- --- Color --- -->
+          <form class="color shadow-sm lg:pt-2.5 pb-2.5 pt-1 pb-1">
+            <legend class="font-bold lg:text-base text-sm">
+              Chose a Color
+            </legend>
+            <label class="flex gap-2 lg:pt-2.5 pt-1">
+              <input
+                type="radio"
+                class="forced-colors:appearence-auto appearance-none"
+              />
+              <p class="forced-colors:block hidden">Red</p>
+              <div
+                class="forced-colors:hidden h-6 w-6 rounded-full bg-red-200 sm:h-4 w-4 rounded-full"
+              ></div>
+              <input
+                type="radio"
+                class="forced-colors:appearence-auto appearance-none"
+              />
+              <p class="forced-colors:block hidden">Blue</p>
+              <div
+                class="forced-colors:hidden h-6 w-6 rounded-full bg-blue-200 sm:h-4 w-4 rounded-full"
+              ></div>
+              <input
+                type="radio"
+                class="forced-colors:appearence-auto appearance-none"
+              />
+              <p class="forced-colors:block hidden">Yellow</p>
+              <div
+                class="forced-colors:hidden h-6 w-6 rounded-full bg-amber-200 sm:h-4 w-4 rounded-full"
+              ></div>
+              <input
+                type="radio"
+                class="forced-colors:appearence-auto appearance-none"
+              />
+              <p class="forced-colors:block hidden">Green</p>
+              <div
+                class="forced-colors:hidden h-6 w-6 rounded-full bg-green-200 sm:h-4 w-4 rounded-full"
+              ></div>
+            </label>
+          </form>
+          <!-- <div class="add-cart pt-5 pb-5">
+            <div class="container-num flex">
+              <button id="decrement" class="text-xl">-</button>
+              <input
+                type="number"
+                min="1"
+                max="4"
+                step="5"
+                value="1"
+                id="my-input"
+                readonly
+                class="appearance-none text-center text-xl m-0"
+              />
+              <button id="increment">+</button>
+            </div>
+            <div class="flex-col">
+              <p>Only 12 Items Left!</p>
+              <p>Don't miss it</p>
+            </div>
+          </div> -->
+          <!-- ----- Quantity ----- -->
+          <div class="flex items-center shadow-sm lg:my-2.5 my-1">
+            <label for="quantity" class="md:mr-2 mr-1 text-sm">Quantity:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              min="1"
+              max="10"
+              value="1"
+              class="py-2 px-3 border border-green-700 rounded-md w-16 text-center focus:outline-red-300 sm:py-1 px-2 w-11"
+            />
+            <p class="px-2 lg:text-sm text-xs">
+              Only <span class="text-red-400"> 12 Items </span> Left! <br />
+              Don't miss it
+            </p>
+          </div>
+          <!-- --- Button Cart --- -->
+          <div class="btn lg:pt-3 pt-2">
+            <button
+              class="rounded-full bg-white text-black text-sm outline  inline-flex items-center justify-center hover:bg-green-900 hover:text-white  md:mx-2.5 mx-0 md:py-2.5 py-1 md:px-14 px-5"
+            >
+              Buy Now
+            </button>
+            <button
+              class="rounded-full bg-white text-black text-sm outline  items-center justify-center hover:bg-green-900 hover:text-white md:inline-flex flex-row md:mx-2.5 mx-0  md:py-2.5 py-1 md:px-14 px-4 "
+            >
+              Add to cart
+            </button>
+          </div>
+
+          <!-- --- Delivery--- -->
+          <div class="delifery lg:my-5 my-2.5">
+            <div
+              class="mt-1 relative flex gap-x-6  rounded-lg hover:bg-gray-50 lg:border-2 border"
+            >
+              <div
+                class="mt-1 flex w-11 flex-none items-center justify-center rounded-lg group-hover:bg-white lg:h-11 h-8"
+              >
+                <i class="fa-solid fa-truck text-amber-400"></i>
+              </div>
+              <div>
+                <a href="" class="font-semibold text-gray-900 lg:text-base text-sm">
+                  Free Delivery
+                  <span class="absolute inset-0"></span>
+                </a>
+                <p
+                  class="text-xs underline-offset-4 text-gray-600 lg:mt-1 mt-0"
+                >
+                  Enter your Postal code for Delivery Availabillity
+                </p>
+              </div>
+            </div>
+            <div
+              class="mt-1 relative flex gap-x-6 rounded-lg hover:bg-gray-50 lg:border-2 border"
+            >
+              <div
+                class="mt-1 flex w-11 flex-none items-center justify-center rounded-lg group-hover:bg-white lg:h-11 h-8"
+              >
+                <i class="fa-sharp fa-regular fa-clipboard text-amber-400"></i>
+              </div>
+              <div>
+                <a href="" class="font-semibold text-gray-900 lg:text-base text-sm">
+                  Return Delivery
+                  <span class="absolute inset-0"></span>
+                </a>
+                <p
+                  class=" text-xs underline-offset-4 text-gray-600 lg:mt-1 mt-0 mb-2.5"
+                >
+                  Free 30days Delivery Return Detail
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec py-2.5 px-10">
+      <h2 class="pheading my-12 font-bold lg:text-3xl text-2xl">
+        Recently Viewed
+      </h2>
+
+      <div class="products grid gap-1 lg:grid-cols-4 grid-cols-2">
+        <!-- card start -->
+        <div
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+        >
+          <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
+          <div
+            class="heart-icon absolute top-4 right-4 px-2.5 py-1.5 bg-slate-300 rounded-full hover:text-red-500"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="box flex justify-between items-center">
+            <div class="title font-semibold text-xl py-1.5 px-5">
+              Bose BT Earphones
+            </div>
+            <div class="price text-xl font-bold p-2.5">
+              <span class="price-span text-xs -top-1 relative">$</span>500<span
+                class="price-span text-xs -top-1 relative"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc text-xs py-0 px-5 opacity-80">
+            Table with purifier, stained verner/black
+          </div>
+          <div class="ratting py-2.5 px-5 text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon py-1 px-3">
+            <button
+              class="btn py-2.5 px-5 text-sm font-semibold rounded-3xl text-slate-700 transition-all outline hover:bg-green-900 hover:text-white hover:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- card end -->
+        <!-- card start -->
+        <div
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+        >
+          <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
+          <div
+            class="heart-icon absolute top-4 right-4 px-2.5 py-1.5 bg-slate-300 rounded-full hover:text-red-500"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="box flex justify-between items-center">
+            <div class="title font-semibold text-xl py-1.5 px-5">
+              Bose BT Earphones
+            </div>
+            <div class="price text-xl font-bold p-2.5">
+              <span class="price-span text-xs -top-1 relative">$</span>500<span
+                class="price-span text-xs -top-1 relative"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc text-xs py-0 px-5 opacity-80">
+            Table with purifier, stained verner/black
+          </div>
+          <div class="ratting py-2.5 px-5 text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon py-1 px-3">
+            <button
+              class="btn py-2.5 px-5 text-sm font-semibold rounded-3xl text-slate-700 transition-all outline hover:bg-green-900 hover:text-white hover:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- card end -->
+        <!-- card start -->
+        <div
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+        >
+          <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
+          <div
+            class="heart-icon absolute top-4 right-4 px-2.5 py-1.5 bg-slate-300 rounded-full hover:text-red-500"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="box flex justify-between items-center">
+            <div class="title font-semibold text-xl py-1.5 px-5">
+              Bose BT Earphones
+            </div>
+            <div class="price text-xl font-bold p-2.5">
+              <span class="price-span text-xs -top-1 relative">$</span>500<span
+                class="price-span text-xs -top-1 relative"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc text-xs py-0 px-5 opacity-80">
+            Table with purifier, stained verner/black
+          </div>
+          <div class="ratting py-2.5 px-5 text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon py-1 px-3">
+            <button
+              class="btn py-2.5 px-5 text-sm font-semibold rounded-3xl text-slate-700 transition-all outline hover:bg-green-900 hover:text-white hover:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- card end -->
+        <!-- card start -->
+        <div
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+        >
+          <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
+          <div
+            class="heart-icon absolute top-4 right-4 px-2.5 py-1.5 bg-slate-300 rounded-full hover:text-red-500"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="box flex justify-between items-center">
+            <div class="title font-semibold text-xl py-1.5 px-5">
+              Bose BT Earphones
+            </div>
+            <div class="price text-xl font-bold p-2.5">
+              <span class="price-span text-xs -top-1 relative">$</span>500<span
+                class="price-span text-xs -top-1 relative"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc text-xs py-0 px-5 opacity-80">
+            Table with purifier, stained verner/black
+          </div>
+          <div class="ratting py-2.5 px-5 text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon py-1 px-3">
+            <button
+              class="btn py-2.5 px-5 text-sm font-semibold rounded-3xl text-slate-700 transition-all outline hover:bg-green-900 hover:text-white hover:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- card end -->
+      </div>
+    </section>
+
+    <section class="sec2 py-2.5 px-10">
+      <h2 class="pheading my-12 font-bold md:text-3xl text-2xl">
+        Similar Items Might Like
+      </h2>
+
+      <div class="products grid gap-1 md:grid-cols-4 grid-cols-2">
+        <!-- card start -->
+        <div
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+        >
+          <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
+          <div
+            class="heart-icon absolute top-4 right-4 px-2.5 py-1.5 bg-slate-300 rounded-full hover:text-red-500"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="box flex justify-between items-center">
+            <div class="title font-semibold text-xl py-1.5 px-5">
+              Bose BT Earphones
+            </div>
+            <div class="price text-xl font-bold p-2.5">
+              <span class="price-span text-xs -top-1 relative">$</span>500<span
+                class="price-span text-xs -top-1 relative"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc text-xs py-0 px-5 opacity-80">
+            Table with purifier, stained verner/black
+          </div>
+          <div class="ratting py-2.5 px-5 text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon py-1 px-3">
+            <button
+              class="btn py-2.5 px-5 text-sm font-semibold rounded-3xl text-slate-700 transition-all outline hover:bg-green-900 hover:text-white hover:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- card end -->
+        <!-- card start -->
+        <div
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+        >
+          <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
+          <div
+            class="heart-icon absolute top-4 right-4 px-2.5 py-1.5 bg-slate-300 rounded-full hover:text-red-500"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="box flex justify-between items-center">
+            <div class="title font-semibold text-xl py-1.5 px-5">
+              Bose BT Earphones
+            </div>
+            <div class="price text-xl font-bold p-2.5">
+              <span class="price-span text-xs -top-1 relative">$</span>500<span
+                class="price-span text-xs -top-1 relative"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc text-xs py-0 px-5 opacity-80">
+            Table with purifier, stained verner/black
+          </div>
+          <div class="ratting py-2.5 px-5 text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon py-1 px-3">
+            <button
+              class="btn py-2.5 px-5 text-sm font-semibold rounded-3xl text-slate-700 transition-all outline hover:bg-green-900 hover:text-white hover:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- card end -->
+        <!-- card start -->
+        <div
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+        >
+          <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
+          <div
+            class="heart-icon absolute top-4 right-4 px-2.5 py-1.5 bg-slate-300 rounded-full hover:text-red-500"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="box flex justify-between items-center">
+            <div class="title font-semibold text-xl py-1.5 px-5">
+              Bose BT Earphones
+            </div>
+            <div class="price text-xl font-bold p-2.5">
+              <span class="price-span text-xs -top-1 relative">$</span>500<span
+                class="price-span text-xs -top-1 relative"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc text-xs py-0 px-5 opacity-80">
+            Table with purifier, stained verner/black
+          </div>
+          <div class="ratting py-2.5 px-5 text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon py-1 px-3">
+            <button
+              class="btn py-2.5 px-5 text-sm font-semibold rounded-3xl text-slate-700 transition-all outline hover:bg-green-900 hover:text-white hover:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- card end -->
+        <!-- card start -->
+        <div
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+        >
+          <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
+          <div
+            class="heart-icon absolute top-4 right-4 px-2.5 py-1.5 bg-slate-300 rounded-full hover:text-red-500"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="box flex justify-between items-center">
+            <div class="title font-semibold text-xl py-1.5 px-5">
+              Bose BT Earphones
+            </div>
+            <div class="price text-xl font-bold p-2.5">
+              <span class="price-span text-xs -top-1 relative">$</span>500<span
+                class="price-span text-xs -top-1 relative"
+                >.00</span
+              >
+            </div>
+          </div>
+          <div class="desc text-xs py-0 px-5 opacity-80">
+            Table with purifier, stained verner/black
+          </div>
+          <div class="ratting py-2.5 px-5 text-amber-400">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="icon py-1 px-3">
+            <button
+              class="btn py-2.5 px-5 text-sm font-semibold rounded-3xl text-slate-700 transition-all outline hover:bg-green-900 hover:text-white hover:outline-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- card end -->
+      </div>
+    </section>
+
+    <section class="contact py-6 px-7 bg-slate-200">
+      <div class="contact-info grid grid-cols-5 gap-12">
+        <div class="first-info">
+          <img
+            src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
+            alt="logo"
+          />
+          <p class="pt-5 text-xs">
+            Amet minim mollit non deserunt ullamco est sit aliqua <br />
+            dolor do amet sint. Velit officia consequat duis enim velit<br />
+            mollit.
+          </p>
+          <p class="pt-5 text-xs">Contact</p>
+          <div class="social-icon">
+            <a href=""
+              ><i
+                class="fa-brands fa-facebook text-gray-600 mr-5 text-xl transition-all hover:scale-125"
+              ></i
+            ></a>
+            <a href=""
+              ><i
+                class="fa-brands fa-twitter text-gray-600 mr-5 text-xl transition-all hover:scale-125"
+              ></i
+            ></a>
+            <a href=""
+              ><i
+                class="fa-brands fa-instagram text-gray-600 mr-5 text-xl transition-all hover:scale-125"
+              ></i
+            ></a>
+            <a href=""
+              ><i
+                class="fa-brands fa-youtube text-gray-600 mr-5 text-xl transition-all hover:scale-125"
+              ></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="second-info">
+          <h4 class="font-bold text-base mb-2.5 uppercase">Department</h4>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Fashion
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Education Product
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Frozen Food
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Beverages
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Organic Grocery
+          </p>
+        </div>
+
+        <div class="thrid-info">
+          <h4 class="font-bold text-base mb-2.5 uppercase">About us</h4>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            About shopcart
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Careers
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            News & Blog
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Help
+          </p>
+        </div>
+
+        <div class="fourth-info">
+          <h4 class="font-bold text-base mb-2.5 uppercase">Services</h4>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Gift Card
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Mobile App
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Shipping & Delivery
+          </p>
+        </div>
+
+        <div class="five">
+          <h4 class="font-bold text-base mb-2.5 uppercase">Help</h4>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Shopcart Help
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Returns
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Track orders
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Contact us
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Feedback
+          </p>
+          <p
+            class="text-sm capitalize mb-2.5 hover:text-red-400 transition-all"
+          >
+            Security & Frau
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>All Right reserved by Musemind ui/ux design agency | 2022</p>
+    </footer>
+  </body>
+</html>

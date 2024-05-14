@@ -35,19 +35,36 @@
         </h1>
       </div>
 
-      <ul class="menu">
+      <input type="checkbox" id="sidebar-active">
+      <label for="sidebar-active" class="open-sidebar-btn">
+        <i class="menu-btn fa-solid fa-bars"></i>
+      </label>
+      <label id="overlay" for="sidebar-active"></label>
+      <div class="link-container">
+        <label for="sidebar-active"class="close-sidebar-btn">
+          <i class="menu-btn fa-regular fa-circle-xmark"></i>
+        </label>
+        <a class="category-link" href="">Category</a>
+        <a href="">Deals</a>
+        <a href="">What's New</a>
+        <a href="">Delivery</a>
+      </div>
+
+      <!-- <ul class="menu">
         <li class="category">
           <a href="" class="active" data-toggle="dropdown"
             >Categories
             <span class="fa fa-caret-down" title="Toggle dropdown menu"></span
           ></a>
         </li>
-        <!-- </ul>
-      <ul class="menu2"> -->
+      
         <li><a href="">Deals</a></li>
         <li><a href="">What's New</a></li>
         <li><a href="">Delivery</a></li>
-      </ul>
+      </ul> -->
+
+
+
 
       <div class="search">
         <input type="text" placeholder="Search Product" />
@@ -57,11 +74,12 @@
       <div class="btn">
         <a href=""> <i class="fa fa-user"></i> Account </a>
         <a href=""> <i class="fa fa-shopping-cart"></i> Cart</a>
-
-        <div class="bx-menu" id="menu-icon">
+      
+        <!-- <div class="bx-menu" id="menu-icon">
           <i class="fa-solid fa-bars"></i>
-        </div>
+        </div> -->
       </div>
+
     </nav>
 
     <section class="content">
