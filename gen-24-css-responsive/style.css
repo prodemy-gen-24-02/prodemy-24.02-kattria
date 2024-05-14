@@ -625,7 +625,7 @@ footer p {
   }
 
   .navbar .link-container a {
-    box-sizing: border-box;
+    box-sizing: border-box; 
     height: auto;
     width: 100%;
     padding: 20px 30px;

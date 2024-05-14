@@ -16,14 +16,22 @@
   <body>
     <section class="navbar shadow overflow-hidden">
       <nav class="navbar flex py-5 px-20 justify-between items-center">
-        <div class="logo ">
+        <div class="logo">
           <img
-            class="w-50 "
+            class="w-50"
             src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
             alt="logo"
           />
         </div>
-        <div class="menu">
+        <input type="checkbox" id="sidebar-active" />
+        <label for="sidebar-active" class="open-sidebar-btn md:block p-5">
+          <i class="menu-btn fa-solid fa-bars"></i>
+        </label>
+        <label id="overlay" for="sidebar-active"></label>
+        <div class="menu md:flex-col items-start fixed top-0 -right-full z-10 w-[200px] bg-[beige] transition-all">
+          <label for="sidebar-active"class="close-sidebar-btn">
+            <i class="menu-btn fa-regular fa-circle-xmark"></i>
+          </label>
           <ul class="flex text-sm font-bold transition-all">
             <li class="category">
               <a
@@ -36,16 +44,16 @@
                 ></span
               ></a>
             </li>
-            <li class="ml-5 hover:text-slate-500"><a href="">Deals</a></li>
-            <li class="ml-5 hover:text-slate-500"><a href="">What's New</a></li>
-            <li class="ml-5 hover:text-slate-500"><a href="">Delivery</a></li>
+            <li class="ml-5 hover:text-slate-500"><a class="md:box-border h-auto w-full py-5 px-[30px] justify-start" href="">Deals</a></li>
+            <li class="ml-5 hover:text-slate-500"><a class="md:box-border h-auto w-full py-5 px-[30px] justify-start">What's New</a></li>
+            <li class="ml-5 hover:text-slate-500"><a class="md:box-border h-auto w-full py-5 px-[30px] justify-start">Delivery</a></li>
           </ul>
         </div>
-        <div class="search relative inline-block">
+        <div class="search relative inline-block mb:none">
           <input
             type="text"
             placeholder="Search Product"
-            class="p-3 w-64 rounded-3xl bg-slate-50 hover:w-96"
+            class="p-3 w-64 rounded-3xl bg-slate-50 hover:w-96 mb:none"
           />
           <button
             type="submit"
@@ -74,7 +82,9 @@
         Electronics / Audio /Headphones / Shop Headphones by type /
         <span class="text-slate-950 font-bold"> airpods-max</span>
       </p>
-      <div class="container justify-center items-center lg:flex md:flex flex-cols">
+      <div
+        class="container justify-center items-center lg:flex md:flex flex-cols"
+      >
         <div class="left w-96">
           <div class="main-image">
             <img
@@ -85,17 +95,7 @@
           </div>
           <div class="option flex justify-between mt-5">
             <div
-              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear "
-            >
-              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
-            </div>
-            <div
-              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear "
-            >
-              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
-            </div>
-            <div
-              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear "
+              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear"
             >
               <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
             </div>
@@ -105,7 +105,17 @@
               <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
             </div>
             <div
-              class="small-img lg:w-48 md:w-28 w-20 overflow-hidden hover:scale-125 duration-75 ease-linear "
+              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear"
+            >
+              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
+            </div>
+            <div
+              class="small-img lg:w-48 md:w-28 w-20 mr-5 overflow-hidden hover:scale-125 duration-75 ease-linear"
+            >
+              <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
+            </div>
+            <div
+              class="small-img lg:w-48 md:w-28 w-20 overflow-hidden hover:scale-125 duration-75 ease-linear"
             >
               <img src="4.png" alt="" class="w-max bg-slate-200 rounded-xl" />
             </div>
@@ -116,7 +126,7 @@
           <!-- -----Detail---- -->
           <div class="title shadow-sm pb-3.5">
             <h3 class="font-bold lg:text-3xl text-xl">Airpods-Max</h3>
-            <p class="text-xs lg:pt-2.5 pt-1 pb-2 ">
+            <p class="text-xs lg:pt-2.5 pt-1 pb-2">
               a perfect balance of exhilarating high-flidelity audio and the
               <br />
               effortless magic of AirPods
@@ -130,7 +140,7 @@
               <span class="text-black">(121)</span>
             </div>
           </div>
-          <div class="price  shadow-sm lg:pt-2.5 pb-2.5 pt-1 pb-1">
+          <div class="price shadow-sm lg:pt-2.5 pb-2.5 pt-1 pb-1">
             <h4 class="font-bold lg:text-xl text-base">
               $549.00 or 99.99/moth
             </h4>
@@ -219,12 +229,12 @@
           <!-- --- Button Cart --- -->
           <div class="btn lg:pt-3 pt-2">
             <button
-              class="rounded-full bg-white text-black text-sm outline  inline-flex items-center justify-center hover:bg-green-900 hover:text-white  md:mx-2.5 mx-0 md:py-2.5 py-1 md:px-14 px-5"
+              class="rounded-full bg-white text-black text-sm outline inline-flex items-center justify-center hover:bg-green-900 hover:text-white md:mx-2.5 mx-0 md:py-2.5 py-1 md:px-14 px-5"
             >
               Buy Now
             </button>
             <button
-              class="rounded-full bg-white text-black text-sm outline  items-center justify-center hover:bg-green-900 hover:text-white md:inline-flex flex-row md:mx-2.5 mx-0  md:py-2.5 py-1 md:px-14 px-4 "
+              class="rounded-full bg-white text-black text-sm outline items-center justify-center hover:bg-green-900 hover:text-white md:inline-flex flex-row md:mx-2.5 mx-0 md:py-2.5 py-1 md:px-14 px-4"
             >
               Add to cart
             </button>
@@ -233,7 +243,7 @@
           <!-- --- Delivery--- -->
           <div class="delifery lg:my-5 my-2.5">
             <div
-              class="mt-1 relative flex gap-x-6  rounded-lg hover:bg-gray-50 lg:border-2 border"
+              class="mt-1 relative flex gap-x-6 rounded-lg hover:bg-gray-50 lg:border-2 border"
             >
               <div
                 class="mt-1 flex w-11 flex-none items-center justify-center rounded-lg group-hover:bg-white lg:h-11 h-8"
@@ -241,7 +251,10 @@
                 <i class="fa-solid fa-truck text-amber-400"></i>
               </div>
               <div>
-                <a href="" class="font-semibold text-gray-900 lg:text-base text-sm">
+                <a
+                  href=""
+                  class="font-semibold text-gray-900 lg:text-base text-sm"
+                >
                   Free Delivery
                   <span class="absolute inset-0"></span>
                 </a>
@@ -261,12 +274,15 @@
                 <i class="fa-sharp fa-regular fa-clipboard text-amber-400"></i>
               </div>
               <div>
-                <a href="" class="font-semibold text-gray-900 lg:text-base text-sm">
+                <a
+                  href=""
+                  class="font-semibold text-gray-900 lg:text-base text-sm"
+                >
                   Return Delivery
                   <span class="absolute inset-0"></span>
                 </a>
                 <p
-                  class=" text-xs underline-offset-4 text-gray-600 lg:mt-1 mt-0 mb-2.5"
+                  class="text-xs underline-offset-4 text-gray-600 lg:mt-1 mt-0 mb-2.5"
                 >
                   Free 30days Delivery Return Detail
                 </p>
@@ -282,7 +298,7 @@
         Recently Viewed
       </h2>
 
-      <div class="products grid gap-1 lg:grid-cols-4 grid-cols-2">
+      <div class="products grid gap-1 lg:grid-cols-4 md:grid-cols-2">
         <!-- card start -->
         <div
           class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
@@ -447,14 +463,14 @@
     </section>
 
     <section class="sec2 py-2.5 px-10">
-      <h2 class="pheading my-12 font-bold md:text-3xl text-2xl">
+      <h2 class="pheading my-12 font-bold lg:text-3xl text-2xl">
         Similar Items Might Like
       </h2>
 
-      <div class="products grid gap-1 md:grid-cols-4 grid-cols-2">
+      <div class="products grid gap-1 lg:grid-cols-4 md:grid-cols-2">
         <!-- card start -->
         <div
-          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90"
+          class="card relative w-64 p-1.5 mb-10 bg-slate-200 rounded-md transition-all hover:scale-90 md:justify-center"
         >
           <div class="img"><img class="h-64 w-full" src="2.jpg" alt="" /></div>
           <div
@@ -616,7 +632,7 @@
     </section>
 
     <section class="contact py-6 px-7 bg-slate-200">
-      <div class="contact-info grid grid-cols-5 gap-12">
+      <div class="contact-info grid grid-cols-1 gap-12 md:grid-cols-5 gap-1">
         <div class="first-info">
           <img
             src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
