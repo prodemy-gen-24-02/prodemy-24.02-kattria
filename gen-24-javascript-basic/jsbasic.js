@@ -11,7 +11,7 @@ function persegiPanjang (p,l){
 }
 
 function lingkaran (r){
-    return Math.PI*r*r;
+    return (Math.PI*r*r).toFixed(3);
 }
 
 function jajargenjang(a,t){
