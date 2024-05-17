@@ -24,7 +24,6 @@ let data = {
  }
 
 
-
 //update property
 function updateData(key, value){
     if (data.hasOwnProperty(key)) {
@@ -34,6 +33,16 @@ function updateData(key, value){
         console.log(`Key "${key}" tidak ada pada data.`);
       }
 }
+
+//update add properti
+function updateOrAddObject(key, value) {
+    if (data.hasOwnProperty(key)) {
+      console.log(`Updating ${key} dari ${data[key]} menjadi ${value}`);
+    } else {
+      console.log(`Menambahkan key baru ${key} : ${value}`);
+    }
+    data[key] = value;
+  }
 
 //delete
 function deleteKey(key) {
@@ -64,13 +73,13 @@ function deleteKey(key) {
 console.log("\nData: ", data);
 
 //menerima input user
-// rl.question('Masukkan key yang ingin di update: ',(key)=>{
-//     rl.question('Masukkan value baru: ', (value)=>{
-//         add(key, value);
-//         console.log("\nUpdate data: ", data);
-//         rl.close();
-//     })
-// })
+ rl.question('Masukkan key yang ingin di update: ',(key)=>{
+     rl.question('Masukkan value baru: ', (value)=>{
+        updateOrAddObject(key, value);
+         console.log("\nUpdate data: ", data);
+         rl.close();
+     })
+ })
 
 //input untuk multiplay
-console.log(addMultiple);
+// addMultiple();
