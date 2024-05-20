@@ -100,12 +100,12 @@
     </header>
     <!-- ---Image--- -->
 
-    <section class="detail-product flex-col justify-center">
+    <section class="detail-product">
       <p class="text-slate-700 my-[6px] mx-[30px]">
         Electronics / Audio /Headphones / Shop Headphones by type /
         <span class="text-slate-950 font-bold"> airpods-max</span>
       </p>
-      <div class="container flex gap-6 md:flex-row flex-col justify-center  my-[30px] transition duration-75">
+      <div class="container flex gap-6 md:flex-row flex-col justify-center my-[30px] mx-[30px] transition duration-75">
         <div class="left">
           <div class="main-image rounded-xl py-[10px] overflow-hidden ">
             <img
@@ -169,8 +169,8 @@
           </div>
         </div>
         <!-- ---detail---- -->
-        <div class="right px-0 py-4 shadow-none md:px-4  md:shadow">
-          <div class="title px-4 pb-[5px]">
+        <div class="right px-0 shadow-none md:px-4  md:shadow">
+          <div class="title md:p-4 pb-4">
             <h3 class="font-bold text-3xl">Airpods-Max</h3>
             <p class="text-[13px] pt-1 pb-2">
               A perfect balance of exhilarating high-flidelity audio and the
@@ -187,7 +187,7 @@
             </div>
           </div>
 
-          <div class="price py-[5px] px-4">
+          <div class="price pb-4 md:px-4">
             <h3 class="font-semibold text-[20px] pt-2">
               $549.00 or 99.99/moth
             </h3>
@@ -195,7 +195,7 @@
               Suggested payments with 6 moths special financing
             </p>
           </div>
-          <div class="color pt-[5px] pb-[8px] px-4">
+          <div class="color pb-4 md:px-4">
             <h3 class="font-semibold text-[20px] pb-[10px]">Chose a Color</h3>
             <div class="color-grup flex gap-[12px]">
               <div
@@ -211,7 +211,7 @@
                 class="color color-red bg-red-200 w-[30px] h-[30px] rounded-full pr[12px] cursor-pointer hover:shadow"
               ></div>
               <div
-                class="color color-green bg-green-200 w-[30px] h-[30px] rounded-full pr-[12px] cursor-pointer hover:shadow"
+                class="color color-green bg-green-200 w-[30px] h-[30px] rounded-full pr[12px] cursor-pointer hover:shadow"
               ></div>
             </div>
             <!-- <form class="color shadow-sm pt-2.5">
@@ -251,7 +251,7 @@
               </label>
             </form> -->
           </div>
-          <div class="quantity flex items-center py-[5px] px-4">
+          <div class="quantity flex items-center py-4 md:mx-4">
             <!-- <label for="quantity" class="text-[16px] pr-2">Quantity: </label>
             <input
               type="number"
@@ -262,19 +262,19 @@
               value="1"
               class="py-2 px-3 border border-green-700 rounded-md w-16 text-center focus:outline-red-300"
             /> -->
-            <div class="btn flex item-center border-[1px] rounded-full bg-slate-200 py-[5px] w-[130px] h-[45px]">
-              <button class="text-green-900 text-3xl h-full w-full " id="decrement" onclick="stepper(this)"> - </button>
-              <input class="appearance-none w-full text-center text-[18px]  bg-slate-200" type="number" min="1" max="5" step="1" value="1" id="my-input" readonly>
-              <button class="text-green-900 text-2xl h-full w-full  " id="increment" onclick="stepper(this)"> + </button>
+            <div class="btn flex item-center border-[1px] rounded-full bg-slate-200">
+              <button class="text-green-900 text-3xl pl-4 pb-1" id="decrement" onclick="stepper(this)"> - </button>
+              <input class="appearance-none w-full p-2 text-center text-[18px]  bg-slate-200" type="number" min="1" max="5" step="1" value="1" id="my-input" readonly>
+              <button class="text-green-900 text-2xl pr-4 pb-1 " id="increment" onclick="stepper(this)"> + </button>
             </div>
 
-            <p class="px-2 text-[13px]">
+            <p class="px-2 text-[15px]">
               Only <span class="text-red-400"> 12 Items </span> Left! <br />
               Don't miss it
             </p>
           </div>
 
-          <div class="btn py-[10px] flex gap-[20px] py-[5px] px-4">
+          <div class="btn pb-2 flex gap-[20px] pt-5 pb-5">
             <button
               class="border border-black rounded-full px-[55px] py-[8px] hover:bg-green-900 hover:border-none hover:text-white"
             >
@@ -287,7 +287,7 @@
             </button>
           </div>
 
-          <div class="delivery px-4 py-[5px]">
+          <div class="delivery">
             <div
               class="mt-1 relative w-[100%] border-[2px] flex gap-x-6 rounded-lg hover:bg-gray-50"
             >
@@ -334,10 +334,10 @@
       </div>
     </section>
 
-    <!-- <article>
+    <article>
       <div class="product"></div>
     </article>
-    <footer></footer> -->
+    <footer></footer>
 
     <script>
       const menu = document.querySelector(".menu");
@@ -355,7 +355,7 @@
       // ---- quantity -----
       const myInput = document.getElementById('my-input');
       function stepper(btn){
-        let id = btn.getAttribute('id');
+        let id=btn.getAttribute('id');
         let min = myInput.getAttribute('min');
         let max = myInput.getAttribute('max');
         let step = myInput.getAttribute('step');
@@ -369,6 +369,11 @@
         }
    
       }
+
+      // const mainImage = document.querySelector(".main-image");
+      // function toggleImg(e) {
+      //   mainImage.classList.toggle("scr");
+      // }
       // ----- COLOR-------
       // const COLOR_BTNS = document.querySelectorAll('.color');
       // COLOR_BTNS.forEach(color => {

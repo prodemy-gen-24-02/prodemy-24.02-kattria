@@ -73,13 +73,13 @@ function deleteKey(key) {
 console.log("\nData: ", data);
 
 //menerima input user
- rl.question('Masukkan key yang ingin di update: ',(key)=>{
-     rl.question('Masukkan value baru: ', (value)=>{
-        updateOrAddObject(key, value);
-         console.log("\nUpdate data: ", data);
-         rl.close();
-     })
- })
+//  rl.question('Masukkan key yang ingin di update: ',(key)=>{
+//      rl.question('Masukkan value baru: ', (value)=>{
+//         updateOrAddObject(key, value);
+//          console.log("\nUpdate data: ", data);
+//          rl.close();
+//      })
+//  })
 
 //input untuk multiplay
-// addMultiple();
+ addMultiple();
