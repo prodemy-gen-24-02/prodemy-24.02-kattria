@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./components/ProductCard";
-import Header from "./components/Header";
 import Button from "./components/Button";
+import Header from "./layout/Header";
 
 import image1 from './assets/2.png';
 import image2 from './assets/3.png';
@@ -21,7 +21,9 @@ function App(){
       name: 'Bose BT Earphones',
       description:'Table with purifier, stained verner/black',
       price: 500.00,
-     image: image1,
+      image: image1,
+      reviews: 121,
+      rating:4,
     },
     {
       id : 2,
@@ -92,7 +94,7 @@ function App(){
         <h1 className="text-3xl font-bold mb-6">Headphones For You!</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
           {products.map((product) => (
-          <ProductCard product={product} />
+          <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
