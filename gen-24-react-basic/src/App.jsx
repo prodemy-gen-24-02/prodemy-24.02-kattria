@@ -4,9 +4,9 @@ import Navbar from "./layout/Navbar";
 import Button from "./components/Button";
 import background from "./assets/1.jpg";
 import products from "./data/products";
-import ProductCard from "../../gen-24-react-component/src/components/ProductCard";
 import Footer from "./layout/Footer";
 import Credit from "./layout/Credit";
+import ProductCard from "./components/ProductCard";
 
 function App() {
   return (

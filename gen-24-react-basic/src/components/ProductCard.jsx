@@ -1,8 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import Rating from "../components/Rating";
-import Button from "../components/Button";
+import Rating from "./Rating";
+import Button from "./Button";
+import Card from "./Card";
 
 const ProductCard = ({product}) => {
     return (

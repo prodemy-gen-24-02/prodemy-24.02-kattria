@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
 
 const Credit = () => {
@@ -20,26 +20,26 @@ const Credit = () => {
           <div className="social-icon">
             <a href="">
               <FontAwesomeIcon
-                icon={faUser}
-                className="fa-brands fa-facebook text-gray-600 mr-5 text-xl transition-all hover:scale-125"
+                icon={faFacebook}
+                className="text-gray-600 mr-5 text-xl transition-all hover:scale-125"
               />
             </a>
             <a href="">
               <FontAwesomeIcon
-                icon={faUser}
-                className="fa-brands fa-twitter text-gray-600 mr-5 text-xl transition-all hover:scale-125"
+                icon={faTwitter}
+                className=" text-gray-600 mr-5 text-xl transition-all hover:scale-125"
               />
             </a>
             <a href="">
               <FontAwesomeIcon
-                icon={faUser}
-                className="fa-brands fa-instagram text-gray-600 mr-5 text-xl transition-all hover:scale-125"
+                icon={faInstagram}
+                className=" text-gray-600 mr-5 text-xl transition-all hover:scale-125"
               />
             </a>
             <a href="">
               <FontAwesomeIcon
-                icon={faUser}
-                className="fa-brands fa-youtube text-gray-600 mr-5 text-xl transition-all hover:scale-125"
+                icon={faYoutube}
+                className="text-gray-600 mr-5 text-xl transition-all hover:scale-125"
               />
             </a>
           </div>
