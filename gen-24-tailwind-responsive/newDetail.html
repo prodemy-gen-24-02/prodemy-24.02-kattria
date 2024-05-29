@@ -105,11 +105,11 @@
         Electronics / Audio /Headphones / Shop Headphones by type /
         <span class="text-slate-950 font-bold"> airpods-max</span>
       </p>
-      <div class="container flex gap-6 md:flex-row flex-col justify-center my-[30px] mx-[30px] transition duration-75">
-        <div class="left">
-          <div class="main-image rounded-xl py-[10px] overflow-hidden ">
+      <div class="flex gap-6 md:flex-row sm:flex-col justify-center items-center m-[30px] transition duration-75">
+        <div class="left-content">
+          <div class="main-image rounded-xl py-[10px] overflow-hidden items-center ">
             <img
-              class="h-[400px] pl-[50px] px-[30px] items-center transition duration-75 hover:scale-125"
+              class="h-[400px] pl-[50px] px-[30px] transition duration-75 hover:scale-125"
               src="4.png"
               alt="image"
               id="mainImage"
@@ -169,13 +169,11 @@
           </div>
         </div>
         <!-- ---detail---- -->
-        <div class="right px-0 shadow-none md:px-4  md:shadow">
+        <div class="right-content  w-[511px] px-5  md:items-center">
           <div class="title md:p-4 pb-4">
             <h3 class="font-bold text-3xl">Airpods-Max</h3>
             <p class="text-[13px] pt-1 pb-2">
-              A perfect balance of exhilarating high-flidelity audio and the
-              <br />
-              effortless magic of AirPods
+              A perfect balance of exhilarating high-flidelity audio and the effortless magic of AirPods
             </p>
             <div class="ratting text-xs text-green-900">
               <i class="fa-solid fa-star"></i>
@@ -251,21 +249,12 @@
               </label>
             </form> -->
           </div>
-          <div class="quantity flex items-center py-4 md:mx-4">
-            <!-- <label for="quantity" class="text-[16px] pr-2">Quantity: </label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              max="10"
-              value="1"
-              class="py-2 px-3 border border-green-700 rounded-md w-16 text-center focus:outline-red-300"
-            /> -->
+          <div class="quantity flex items-center py-4 md:mx-4 gap-4">
+           
             <div class="btn flex item-center border-[1px] rounded-full bg-slate-200">
-              <button class="text-green-900 text-3xl pl-4 pb-1" id="decrement" onclick="stepper(this)"> - </button>
+              <button class="text-green-900 text-3xl pl-7 pb-1" id="decrement" onclick="stepper(this)"> - </button>
               <input class="appearance-none w-full p-2 text-center text-[18px]  bg-slate-200" type="number" min="1" max="5" step="1" value="1" id="my-input" readonly>
-              <button class="text-green-900 text-2xl pr-4 pb-1 " id="increment" onclick="stepper(this)"> + </button>
+              <button class="text-green-900 text-2xl pr-5 pb-1 " id="increment" onclick="stepper(this)"> + </button>
             </div>
 
             <p class="px-2 text-[15px]">
@@ -274,26 +263,22 @@
             </p>
           </div>
 
-          <div class="btn pb-2 flex gap-[20px] pt-5 pb-5">
+          <div class="btn flex pt-3 pb-5 px-4 justify-between">
             <button
-              class="border border-black rounded-full px-[55px] py-[8px] hover:bg-green-900 hover:border-none hover:text-white"
+              class="border border-black rounded-full w-[200px]  hover:bg-green-900 hover:border-none hover:text-white"
             >
               Buy Now
             </button>
             <button
-              class="border border-black rounded-full px-[50px] py-[8px] hover:bg-green-900 hover:border-none hover:text-white"
+              class="border border-black rounded-full w-[200px] py-3 hover:bg-green-900 hover:border-none hover:text-white"
             >
               Add to cart
             </button>
           </div>
 
-          <div class="delivery">
-            <div
-              class="mt-1 relative w-[100%] border-[2px] flex gap-x-6 rounded-lg hover:bg-gray-50"
-            >
-              <div
-                class="mt-1 flex w-11 flex-none items-center justify-center rounded-lg group-hover:bg-white lg:h-11 h-8"
-              >
+          <div class="delivery px-4 pb-4">
+            <div  class="mt-1 relative w-[435px] border-[2px] flex gap-x-6 rounded-lg hover:bg-gray-50">
+              <div class="mt-1 flex w-11 flex-none items-center justify-center rounded-lg group-hover:bg-white lg:h-11 h-8">
                 <i class="fa-solid fa-truck text-amber-400"></i>
               </div>
               <div>
@@ -307,7 +292,7 @@
               </div>
             </div>
             <div
-              class="mt-1 relative flex gap-x-6 rounded-lg hover:bg-gray-50 border-2"
+              class="mt-1 relative w-[435px]  border-[2px] flex gap-x-6 rounded-lg hover:bg-gray-50"
             >
               <div
                 class="mt-1 flex w-11 flex-none items-center justify-center rounded-lg group-hover:bg-white lg:h-11 h-8"
@@ -367,6 +352,7 @@
         if(newValue >= min && newValue <=max){
           myInput.setAttribute('value', newValue);
         }
+        
    
       }
 
