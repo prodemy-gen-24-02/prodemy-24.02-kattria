@@ -1,0 +1,169 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Furniture",
+      "items": 240,
+      "imgSrc": "src/assets/furniture.png"
+    },
+    {
+      "id": "2",
+      "name": "Shoe",
+      "items": 240,
+      "imgSrc": "src/assets/Shoes.png"
+    },
+    {
+      "id": "3",
+      "name": "Laptop",
+      "items": 240,
+      "imgSrc": "src/assets/Laptop.png"
+    },
+    {
+      "id": "4",
+      "name": "Hand Bag",
+      "items": 240,
+      "imgSrc": "src/assets/Hand Bag.png"
+    },
+    {
+      "id": "5",
+      "name": "Headphone",
+      "items": 240,
+      "imgSrc": "src/assets/Headphone.png"
+    },
+    {
+      "id": "6",
+      "name": "Book",
+      "items": 240,
+      "imgSrc": "src/assets/book.png"
+    }
+  ],
+  "products": [
+    {
+      "id": "2",
+      "name": "HIFI Stereo Headphone",
+      "description": "Bluetooth Headphone Music Headset",
+      "price": 500,
+      "image": "src/assets/3.png",
+      "reviews": 121,
+      "rating": 5,
+      "color": {
+        "green": "src/assets/3.png",
+        "red": "src/assets/2.png",
+        " pink": "src/assets/4.png",
+        "black": "src/assets/6.png",
+        "white": "src/assets/7.png"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Zebronics Zeb-Thunder",
+      "description": "Wireless BT Headphone with Built-In Fm",
+      "price": 500,
+      "image": "src/assets/4.png",
+      "reviews": 121,
+      "rating": 5,
+      "color": {
+        "green": "src/assets/4.png",
+        "red": "src/assets/3.png",
+        " pink": "src/assets/2.png",
+        "black": "src/assets/6.png",
+        "white": "src/assets/7.png"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Sony Headphone",
+      "description": "Headphone with memory card slot",
+      "price": 500,
+      "image": "src/assets/10.png",
+      "reviews": 121,
+      "rating": 5,
+      "color": {
+        "green": "src/assets/10.png",
+        "red": "src/assets/3.png",
+        " pink": "src/assets/4.png",
+        "black": "src/assets/6.png",
+        "white": "src/assets/7.png"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Another Headphone",
+      "description": "Amazing sound quality and comfort",
+      "price": 500,
+      "image": "src/assets/6.png",
+      "reviews": 121,
+      "rating": 5,
+      "color": {
+        "green": "src/assets/6.png",
+        "red": "src/assets/3.png",
+        " pink": "src/assets/4.png",
+        "black": "src/assets/2.png",
+        "white": "src/assets/7.png"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Zebronics Zeb-Thunder",
+      "description": "Wireless BT Headphone with Built-In Fm",
+      "price": 500,
+      "image": "src/assets/7.png",
+      "reviews": 121,
+      "rating": 5,
+      "color": {
+        "green": "src/assets/7.png",
+        "red": "src/assets/3.png",
+        " pink": "src/assets/4.png",
+        "black": "src/assets/6.png",
+        "white": "src/assets/10.png"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Zebronics Zeb-Thunder",
+      "description": "Wireless BT Headphone with Built-In Fm",
+      "price": 500,
+      "image": "src/assets/9.png",
+      "reviews": 121,
+      "rating": 5,
+      "color": {
+        "green": "src/assets/9.png",
+        "red": "src/assets/3.png",
+        " pink": "src/assets/4.png",
+        "black": "src/assets/6.png",
+        "white": "src/assets/7.png"
+      }
+    },
+    {
+      "id": "8",
+      "name": "Zebronics Zeb-Thunder",
+      "description": "Wireless BT Headphone with Built-In Fm",
+      "price": 500,
+      "image": "src/assets/10.png",
+      "reviews": 121,
+      "rating": 4,
+      "color": {
+        "green": "src/assets/10.png",
+        "red": "src/assets/3.png",
+        " pink": "src/assets/4.png",
+        "black": "src/assets/6.png",
+        "white": "src/assets/7.png"
+      }
+    },
+    {
+      "name": "Bose BT Earphones",
+      "description": "Table with purifier",
+      "price": 1000,
+      "image": "src/assets/2.png",
+      "color": [
+        {
+          "name": "green: src/assets/10.png"
+        },
+        {
+          "name": "red: src/assets/3.png"
+        }
+      ],
+      "id": "d4ca"
+    }
+  ]
+}
