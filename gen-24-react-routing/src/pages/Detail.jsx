@@ -15,6 +15,7 @@ import redImg from "../assets/3.png";
 import pinkImg from "../assets/7.png";
 import blackImg from "../assets/10.png";
 import whiteImg from "../assets/2.png";
+import Layout from "../layout/Layout";
 
 const Detail = () => {
   const { id } = useParams();
@@ -56,9 +57,8 @@ const Detail = () => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <>
-      <Header />
-      <Navbar />
+    
+      <Layout>
       <div>
         <div className="top">
           <p className="text-slate-700 my-[6px] mx-[30px]">
@@ -214,9 +214,7 @@ const Detail = () => {
 
         {/* ---akhir */}
       </div>
-
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

@@ -26,7 +26,7 @@ const Navbar = () => {
     <nav className="bg-white shadow">
       <div className="container mx-auto flex justify-between items-center py-4 px-[30px]">
         <div className="flex items-center">
-          <Link to="/">
+          <Link to="/home">
           <img
             src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
             alt="Logo"

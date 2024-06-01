@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "../layout/Header";
-import Navbar from "../layout/Navbar";
 import Button from "../components/Button";
-import Footer from "../layout/Footer";
 import product from "../data/product";
 import background from "../assets/1.jpg";
 import ProductCard from "../components/ProductCard";
+import Layout from "../layout/Layout";
 // import { useNavigate } from "react-router-dom";
 
 
@@ -13,8 +11,7 @@ const Home = () => {
   
   return (
     <div>
-      <Header />
-      <Navbar />
+      <Layout>
       <div
         className="flex flex-col justify-center items-start px-[50px] bg-[length:200vh_95vh] h-[95vh] bg-no-repeat lg:bg-repeat z-0"
         style={{ backgroundImage: `url(${background})` }}
@@ -41,8 +38,9 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <Footer />
+      </Layout>
     </div>
+    
   );
 };
 

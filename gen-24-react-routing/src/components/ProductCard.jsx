@@ -25,6 +25,7 @@ const ProductCard = ({ product }) => {
     );
   };
   return (
+    <Link to={`/detail/${product.id}`}>
     <div className="max-w-sm relative  w-64 p-1.5 mb-10 rounded overflow-hidden shadow-lg bg-slate-200 transition-all hover:scale-90 ">
       <img src={product.image} alt={product.name} />
       <div className="absolute top-4 right-4 px-2.5 bg-slate-100 rounded-full hover:text-red-500">
@@ -51,6 +52,7 @@ const ProductCard = ({ product }) => {
         </Link>
       </div>
     </div>
+    </Link>
   );
 };
 export default ProductCard;
