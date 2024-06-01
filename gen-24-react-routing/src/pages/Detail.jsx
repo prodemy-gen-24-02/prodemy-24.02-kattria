@@ -16,6 +16,7 @@ import pinkImg from "../assets/7.png";
 import blackImg from "../assets/10.png";
 import whiteImg from "../assets/2.png";
 import Layout from "../layout/Layout";
+import { useEffect } from "react";
 
 const Detail = () => {
   const { id } = useParams();
@@ -24,6 +25,9 @@ const Detail = () => {
   const [mainImage, setMainImage] = useState(product.image);
 
   const [selectedThumbnail, setThumbnail] = useState("green");
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const images = {
     green: product.image,
     red: redImg,
@@ -35,6 +39,7 @@ const Detail = () => {
     setThumbnail(color);
     setMainImage(images[color]);
   };
+
   // const Rating = (rating) => {
   //   return (
   //     <div className="flex items-center">
