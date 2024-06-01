@@ -25,7 +25,7 @@ const products = [
       price: 500.00,
       image: product2,
       reviews: 121,
-      rating:5,
+      rating:3,
     },
     {
       id : 3,

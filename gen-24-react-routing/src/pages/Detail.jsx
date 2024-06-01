@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTruck } from "@fortawesome/free-solid-svg-icons";
+import { faTruck, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 
 import Header from "../layout/Header";
@@ -40,24 +40,23 @@ const Detail = () => {
     setMainImage(images[color]);
   };
 
-  // const Rating = (rating) => {
-  //   return (
-  //     <div className="flex items-center">
-  //       {Array.from({ length: 5 }, (_, index) => (
-  //         <FontAwesomeIcon
-  //           key={index}
-  //           icon={faStar}
-  //           className={
-  //             index < rating
-  //               ? "text-yellow-400 outline-[2px]"
-  //               : "text-gray-600 outline-[20px]"
-  //           }
-  //         />
-  //       ))}
-  //     </div>
-  //   );
-  // };
-  // console.log(Rating({rating:product.rating}))
+   const Rating = (rating) => {
+     return (
+       <div className="flex items-center">
+         {Array.from({ length: 5 }, (_, index) => (
+           <FontAwesomeIcon
+             key={index}
+             icon={faStar}
+             className={
+               index < rating
+                 ? "text-yellow-400 outline-[2px]"
+                 : "text-gray-400 outline-[20px]"
+             }
+           />
+         ))}
+       </div>
+     );
+   };
 
   const [quantity, setQuantity] = useState(1);
 
@@ -101,9 +100,8 @@ const Detail = () => {
             <div className="title pb-4 md:p-4 border-b">
               <h3 className="font-bold text-3xl">{product.name}</h3>
               <p className="text-[13px] pt-1 pb-2">{product.description}</p>
-              <div className="rating text-xs text-green-900">
-              {/* <Rating rating={product.rating} /> */}
-                {product.rating}
+              <div className="flex text-xs text-green-900 space-x-1">
+               {Rating(product.rating)}
                 <span className="text-black">{product.reviews}</span>
               </div>
             </div>
