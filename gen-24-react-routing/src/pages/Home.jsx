@@ -4,6 +4,8 @@ import product from "../data/product";
 import background from "../assets/1.jpg";
 import ProductCard from "../components/ProductCard";
 import Layout from "../layout/Layout";
+import categories from "../data/categories";
+import CategoriesCard from "../components/CategoriesCard";
 // import { useNavigate } from "react-router-dom";
 
 
@@ -29,6 +31,14 @@ const Home = () => {
         >
           Buy Now!
         </Button>
+      </div>
+      <div className="p-[50px]">
+        <h1 className="text-3xl font-bold mb-6">Shop our top categories</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1">
+            {categories.map((categories)=>(
+              <CategoriesCard key={categories.id} categories={categories}/>
+            ))}
+        </div>
       </div>
       <div className="p-[50px] bg-white">
         <h1 className="text-3xl font-bold mb-6">Headphones For You!</h1>

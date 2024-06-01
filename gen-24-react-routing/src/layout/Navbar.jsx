@@ -60,7 +60,7 @@ const Navbar = () => {
               {showDropdown && (
                 // ---CategoriesMenu
                 <div
-                  className={`absolute mt-2 w-[800px] bg-white border border-gray-200 shadow-lg rounded-3xl ${
+                  className={`absolute mt-2 w-[800px] md:w-[800px] sm:w-[550px] bg-white border border-gray-200 shadow-lg rounded-3xl ${
                     showBugerMenu ? "-translate-x-56" : "transform-none"
                   }`}
                 >
@@ -70,17 +70,20 @@ const Navbar = () => {
                     </h2>
                     <div className="grid grid-cols-2 gap-x-1 gap-y-3">
                       {categories.map((category) => (
-                        <div
+                        
+                          <div
                           key={category.name}
                           className={`${
                             showBugerMenu ? "w-[250px]" : "w-[350px]"
-                          } flex w-[350px] items-start space-x-4 px-4 pt-3 border rounded-lg bg-gray-100 cursor-pointer`}
+                          } flex w-[350px] md:w-[350px] items-start space-x-4 px-4 p-2 border rounded-lg sm:w-64 cursor-pointer`}
                         >
+                          <div className="h-14 w-16">
                           <img
                             src={category.imgSrc}
                             alt={category.name}
                             className="h-16 object-cover"
                           />
+                          </div>
                           <div className="h-[20px]">
                             <h3 className="text-base font-bold hover:text-sky-700 transition-all">
                               {category.name}
@@ -89,6 +92,7 @@ const Navbar = () => {
                               {category.items} Item Available
                             </p>
                           </div>
+
                         </div>
                       ))}
                     </div>

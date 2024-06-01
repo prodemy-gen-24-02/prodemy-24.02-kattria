@@ -93,7 +93,7 @@ const Detail = () => {
           </div>
 
           <div className="right w-[511px] px-5 md:items-center">
-            <div className="title pb-4 md:p-4">
+            <div className="title pb-4 md:p-4 border-b">
               <h3 className="font-bold text-3xl">{product.name}</h3>
               <p className="text-[13px] pt-1 pb-2">{product.description}</p>
               <div className="rating text-xs text-green-900">
@@ -103,9 +103,10 @@ const Detail = () => {
               </div>
             </div>
 
-            <div className="price pb-4 md:px-4">
-              <h3 className="font-semibold text-[20px] pt-2">
+            <div className="price pb-4 md:px-4 border-b">
+              <h3 className="font-semibold text-[20px] pt-2">$
                 {product.price}
+                <span>.00</span>
               </h3>
               <p className="text-[13px]">
                 Suggested payments with 6 moths special financing
@@ -140,7 +141,7 @@ const Detail = () => {
                 ))}
               </div>
             </div>
-            <div className="quantity flex space-x-5 px-4 py-4 ">
+            <div className="quantity flex space-x-5 px-4 py-4 border-b">
               <div className="rounded-full bg-slate-200 pl-2 pb-2 h-fit">
                 <button
                   onClick={() =>
