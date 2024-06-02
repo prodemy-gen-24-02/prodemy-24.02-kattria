@@ -39,20 +39,18 @@
   ],
   "products": [
     {
-      "id": "2",
       "name": "HIFI Stereo Headphone",
       "description": "Bluetooth Headphone Music Headset",
       "price": 500,
       "image": "src/assets/3.png",
-      "reviews": 121,
-      "rating": 5,
       "color": {
         "green": "src/assets/3.png",
         "red": "src/assets/2.png",
         " pink": "src/assets/4.png",
         "black": "src/assets/6.png",
         "white": "src/assets/7.png"
-      }
+      },
+      "id": "2"
     },
     {
       "id": "3",
@@ -153,17 +151,13 @@
     {
       "name": "Bose BT Earphones",
       "description": "Table with purifier",
-      "price": 1000,
+      "price": 100,
       "image": "src/assets/2.png",
-      "color": [
-        {
-          "name": "green: src/assets/10.png"
-        },
-        {
-          "name": "red: src/assets/3.png"
-        }
-      ],
-      "id": "d4ca"
+      "color": {
+        "green": "src/assets/2.png",
+        "red": "src/assets/3.png"
+      },
+      "id": "b220"
     }
   ]
 }

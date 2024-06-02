@@ -7,6 +7,9 @@ import useSWR from "swr";
 import ProductForm from "../components/ProductForm";
 import { createProduct } from "../components/CrudService";
 import { UseSWR } from "../components/UseSWR";
+import Dashboard from "../components/DashboardProduct";
+import DashboardProduct from "../components/DashboardProduct";
+import DashboardCategory from "../components/DashboardCategory";
 
 const Admin = () => {
    const fetcher = async()=>{
@@ -14,18 +17,17 @@ const Admin = () => {
    }
    const{mutate} = useSWR("/products",fetcher)
   //const {mutate} = UseSWR();
-  // const handleCreate = async (product)=>{
-  //   await createProduct(product);
-  //   mutate();
-  // }
+   const handleCreate = async (product)=>{
+     await createProduct(product);
+     mutate();
+   }
   return (
     <div>
-      <Header />
-      <Navbar />
-      <h1 className="text-2xl mb-4">Admin Page</h1>
-      {/* <ProductForm onSubmit={handleCreate}/> */}
-      <ProductTable />
-      <Footer />
+      {/* <Navbar/>
+      <h1 className="text-2xl mb-4">Dashboard</h1>
+      <ProductTable /> */}
+       <DashboardProduct/> 
+   
     </div>
   );
 };

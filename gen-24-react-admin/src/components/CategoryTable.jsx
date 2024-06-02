@@ -1,29 +1,25 @@
 import React, { useState } from "react";
-import ProductForm from "./ProductForm";
-import { deleteProduct, updateProduct } from "./CrudService";
-import useSWR from "swr";
 import { Link } from "react-router-dom";
+import useSWR from "swr";
 
-const ProductTable = ({ sideBar }) => {
+const CategoryTable = ({ sideBar }) => {
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, isLoading, isError, mutate } = useSWR(
-    "http://localhost:3000/products",
+    "http://localhost:3000/categories",
     fetcher
   );
-  // const{products, isLoading, isError, mutate} = UseSWR();
-  const [editingProduct, setEditing] = useState(null);
-
+  const [editingCategories, setEditing] = useState(null);
   const handleDelete = async (id) => {
     await deleteProduct(id);
     mutate(); // Refresh data
   };
 
-  const handleEdit = (product) => {
-    setEditing(product);
+  const handleEdit = (category) => {
+    setEditing(category);
   };
 
-  const handleUpdate = async (updatedProduct) => {
-    await updateProduct(editingProduct.id, updatedProduct);
+  const handleUpdate = async (updatedCategory) => {
+    await updateProduct(editingCategories.id, updatedCategory);
     setEditing(null);
     mutate(); // Refresh data
   };
@@ -33,12 +29,11 @@ const ProductTable = ({ sideBar }) => {
   };
 
   if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading products</div>;
+  if (isError) return <div>Error loading ategory</div>;
 
   return (
     <div className="mt-24">
-      {/* <ProductForm onSubmit={handleUpdate||handleCreate} product={editingProduct}/> */}
-      <h3
+        <h3
         className={`${sideBar ? "ml-72" : "mx-10"} text-xl font-semibold my-5`}
       >
         Dashboard
@@ -52,31 +47,25 @@ const ProductTable = ({ sideBar }) => {
           <tr>
             <th className="py-2 px-4 border">ID</th>
             <th className="py-2 px-4 border">Name</th>
-            <th className="py-2 px-4 border">Description</th>
-            <th className="py-2 px-4 border">Price</th>
-            <th className="py-2 px-4 border">Image</th>
+            <th className="py-2 px-4 border">Items</th>
             <th className="py-2 px-4 border">Action</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((product) => (
-            <tr key={product.id} className="">
-              <td className="py-2 px-4 border">{product.id}</td>
-              <td className="py-2 px-4 border">{product.name}</td>
-              <td className="py-2 px-4 border">{product.description}</td>
-              <td className="py-2 px-4 border">{product.price}</td>
-              <td className="py-2 px-4 border">
-                <img src={import.meta.env.BASE_URL + product.image} alt="" className="w-14" />
-              </td>
+          {data.map((category) => (
+            <tr key={category.id} className="">
+              <td className="py-2 px-4 border">{category.id}</td>
+              <td className="py-2 px-4 border">{category.name}</td>
+              <td className="py-2 px-4 border">{category.items}</td>
               <td className="py-2 px-4 border-b">
                 <button
-                  onClick={() => handleEdit(product)}
+                  onClick={() => handleEdit(category)}
                   className="px-2 py-1 bg-green-900 text-white mr-2"
                 >
                   Edit
                 </button>
                 <button
-                  onClick={() => handleDelete(product.id)}
+                  onClick={() => handleDelete(category.id)}
                   className="px-2 py-1 bg-green-900 text-white mr-2"
                 >
                   Delete
@@ -92,10 +81,11 @@ const ProductTable = ({ sideBar }) => {
             sideBar ? "ml-72" : "mx-10"
           } text-base my-5 rounded-xl bg-green-900 px-4 py-1 text-white`}
         >
-          + Add Product
+          + Add category
         </button>
       </Link>
     </div>
-  );
+  )
 };
-export default ProductTable;
+
+export default CategoryTable;
