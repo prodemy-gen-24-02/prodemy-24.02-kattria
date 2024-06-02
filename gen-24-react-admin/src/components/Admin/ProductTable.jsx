@@ -66,7 +66,11 @@ const ProductTable = ({ sideBar }) => {
               <td className="py-2 px-4 border">{product.description}</td>
               <td className="py-2 px-4 border">{product.price}</td>
               <td className="py-2 px-4 border">
-                <img src={import.meta.env.BASE_URL + product.image} alt="" className="w-14" />
+                <img
+                  src={import.meta.env.BASE_URL + product.image}
+                  alt=""
+                  className="w-14"
+                />
               </td>
               <td className="py-2 px-4 border-b">
                 <button

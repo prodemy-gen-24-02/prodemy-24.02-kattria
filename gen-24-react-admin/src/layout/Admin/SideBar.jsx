@@ -1,13 +1,9 @@
 import {
   faCircleUser,
   faCircleXmark,
-  faList,
-  faUser,
-  faX,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import profile from "../assets/Laptop.png";
 import { Link } from "react-router-dom";
 import { faAccusoft } from "@fortawesome/free-brands-svg-icons";
 

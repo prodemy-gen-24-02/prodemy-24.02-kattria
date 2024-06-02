@@ -7,11 +7,9 @@ import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 
 import Header from "../layout/Header";
-import Navbar from "../layout/Navbar";
+import Navbar from "../layout/Admin/NavbarAdmin";
 import Footer from "../layout/Footer";
 import Button from "../components/Button";
-
-
 
 const Detail = () => {
   const { id } = useParams();
@@ -25,21 +23,21 @@ const Detail = () => {
   const [mainImage, setMainImage] = useState(null);
   const [selectedThumbnail, setThumbnail] = useState(null);
 
-    // useEffect(() => {
-    //   if (product) {
-    //     setMainImage(product.image);
-    //     const firstColor = Object.keys(product.color)[0];
-    //     //console.log(firstColor);
-    //     setThumbnail(firstColor);
-    //   }
-    // }, [product]);
+  // useEffect(() => {
+  //   if (product) {
+  //     setMainImage(product.image);
+  //     const firstColor = Object.keys(product.color)[0];
+  //     //console.log(firstColor);
+  //     setThumbnail(firstColor);
+  //   }
+  // }, [product]);
 
-    if (!mainImage && product) {
-      setMainImage(product.image);
-      const firstColor = Object.keys(product.color)[0];
-      setThumbnail(firstColor);
-      setMainImage(product.color[firstColor]);
-    }
+  if (!mainImage && product) {
+    setMainImage(product.image);
+    const firstColor = Object.keys(product.color)[0];
+    setThumbnail(firstColor);
+    setMainImage(product.color[firstColor]);
+  }
 
   const handleThumbnail = (color) => {
     setThumbnail(color);
@@ -51,7 +49,6 @@ const Detail = () => {
   if (error) return alert(JSON.stringify(error));
   // (<div>Failed to load</div>);
   if (!product) return <div>Loading...</div>;
-
 
   // const Rating = (rating) => {
   //   return (
