@@ -10,7 +10,6 @@ const ProductTable = ({ sideBar }) => {
     "http://localhost:3001/products",
     fetcher
   );
-  // const{products, isLoading, isError, mutate} = UseSWR();
   const [editingProduct, setEditing] = useState(null);
 
   const handleDelete = async (id) => {
@@ -22,15 +21,7 @@ const ProductTable = ({ sideBar }) => {
     setEditing(product);
   };
 
-  const handleUpdate = async (updatedProduct) => {
-    await updateProduct(editingProduct.id, updatedProduct);
-    setEditing(null);
-    mutate(); // Refresh data
-  };
-  const handleCreate = async (product) => {
-    await createProduct(product);
-    mutate();
-  };
+ 
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading products</div>;

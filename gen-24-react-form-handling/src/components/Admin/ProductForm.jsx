@@ -2,15 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import validationSchema from "./validationSchema";
+import { createProduct, updateProduct } from "./CrudService";
 
-const ProductForm = ({ onSubmit, product, sideBar }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    control,
-    formState: { errors },
-  } = useForm({
+const ProductForm = ({ onFormSubmit, product, sideBar, clearProduct}) => {
+  const { register,handleSubmit,reset,control,formState: { errors }} = useForm({
     resolver: yupResolver(validationSchema),
     defaultValues: {
       name: "",
@@ -40,51 +35,53 @@ const ProductForm = ({ onSubmit, product, sideBar }) => {
       });
     }
   }, [product, reset]);
-  // const handleAddColor = () => {
-  //   setColor({
-  //     ...color,
-  //     [colorName]: colorUrl,
-  //   });
-  //   setColorName("");
-  //   setColorUrl("");
-  // };
 
-  // const handleRemoveColor = (colorKey) => {
-  //   const newColors = { ...color };
-  //   delete newColors[colorKey];
-  //   setColor(newColors);
-  // };
+    const onSubmit = data => {
+     console.log(data);
+     if(product){
+       clearProduct();
+     }else{
+       reset();
+     }
+     onFormSubmit();
+    }
 
-  // const handleFormSubmit = (data) => {
-  //   const formattedData = {
-  //     ...data,
-  //     color: data.color.reduce((acc, { colorName, colorUrl }) => {
-  //       acc[colorName] = colorUrl;
-  //       return acc;
-  //     }, {}),
-  //   };
-  //   onSubmit(formattedData);
-  //       name,
-  //       description,
-  //       price: priceValue,
-  //       image,
-  //       color,
+  //  const handleFormSubmit = (data) => {
+  //    const formattedData = {
+  //      ...data,
+  //      color: data.color.reduce((acc, { colorName, colorUrl }) => {
+  //        acc[colorName] = colorUrl;
+  //        return acc;
+  //      }, {}),
+  //    };
+      // onSubmit(formattedData);
+      //     name,
+      //     description,
+      //     price: priceValue,
+        //  image,
+        //  color,
   //     });
   //   setName("");
   //   setDesc("");
   //   setPrice("");
   //   setImage("");
   //   setColor({});
-  //};
-  // const handlePriceChange = (e) => {
-  //   const value = e.target.value;
-  //   setPrice(value === "" ? "" : parseFloat(value));
-  // };
+  
+ 
+  const handleUpdate = async (updatedProduct) => {
+    await updateProduct(editingProduct.id, updatedProduct);
+    setEditing(null);
+    mutate(); // Refresh data
+  };
+  const handleCreate = async (product) => {
+    await createProduct(product);
+    mutate();
+  };
 
   return (
-    <form
-      // onSubmit={handleSubmit(handleFormSubmit)}
-       className={`${sideBar ? "ml-72" : "mx-10"} mx-5 my-24 space-y-4 px-4`}
+     <form 
+      onSubmit={handleSubmit(onSubmit)}
+        className={`${sideBar ? "ml-72" : "mx-10"} mx-5 my-24 space-y-4 px-4`}
     >
       <div>
         <label className="block">Name</label>
@@ -169,6 +166,6 @@ const ProductForm = ({ onSubmit, product, sideBar }) => {
       </button>
     </form>
   );
-};
+ };
 
 export default ProductForm;

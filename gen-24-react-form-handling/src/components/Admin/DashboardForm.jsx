@@ -4,6 +4,14 @@ import Navbar from "../../layout/Admin/NavbarAdmin";
 import ProductForm from "./ProductForm";
 
 const DashboardForm = () => {
+  const [currentProduct, setCurrentProduct] = useState(null);
+  const handleSubmit = () => {
+    console.log('Form submitted');
+    // Tambahkan logika tambahan di sini jika diperlukan
+  };
+  const clearCurrentProduct = () => {
+    setCurrentProduct(null);
+  };
     const [showSidebar, setSidebar] = useState(false);
     return (
       <div>
@@ -12,7 +20,9 @@ const DashboardForm = () => {
           toggleBurgerMenu={() => setSidebar(!showSidebar)}
         />
         <Navbar toggleBurgerMenu={() => setSidebar(!showSidebar)} />
-        <ProductForm sideBar={showSidebar} />
+        <ProductForm 
+        sideBar={showSidebar}
+        onFormSubmit={handleSubmit} />
       </div>
     );
   };
