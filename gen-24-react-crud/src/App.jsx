@@ -5,7 +5,6 @@ import Detail from "./pages/Detail";
 import Admin from "./pages/Admin";
 import DashboardCategory from "./components/Admin/DashboardCategory";
 import DashboardProduct from "./components/Admin/DashboardProduct";
-import ProductForm from "./components/Admin/ProductForm";
 import DashboardForm from "./components/Admin/DashboardForm";
 
 function App() {
@@ -18,7 +17,8 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/categories" element={<DashboardCategory />} />
         <Route path="/admin/product" element={<DashboardProduct />} />
-        <Route path="/admin/form-product" element={<DashboardForm />} />
+        <Route path="/admin/form-product/new" element={<DashboardForm />} />
+        <Route path="/admin/form-product/edit/:id" element={<DashboardForm />} />
       </Routes>
     </Router>
   );

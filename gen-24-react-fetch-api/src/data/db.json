@@ -1,4 +1,42 @@
 {
+  "categories" : [
+    {
+      "id" : 1,
+      "name": "Furniture",
+      "items": 240,
+      "imgSrc": "src/assets/furniture.png"
+    },
+    {
+      "id" : 2,
+      "name": "Shoe",
+      "items": 240,
+      "imgSrc": "src/assets/Shoes.png"
+    },
+    {
+      "id" : 3,
+      "name": "Laptop",
+      "items": 240,
+      "imgSrc": "src/assets/Laptop.png"
+    },
+    {
+      "id" : 4,
+      "name": "Hand Bag",
+      "items": 240,
+      "imgSrc": "src/assets/Hand Bag.png"
+    },
+    {
+      "id" : 5,
+      "name": "Headphone",
+      "items": 240,
+      "imgSrc": "src/assets/Headphone.png"
+    },
+    {
+      "id" : 6,
+      "name": "Book",
+      "items": 240,
+      "imgSrc": "src/assets/book.png"
+    }
+  ],
   "products": [
         {
           "id": 1,

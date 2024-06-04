@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import Rating from "../../../gen-24-react-basic/src/components/Rating";
 import Button from "./Button";
+import Rating from "./Rating";
 
 const ProductCard = ({ product }) => {
   return (
@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="text-xs py-0 px-5 opacity-80">{product.description}</div>
       <div className="flex py-3 px-5">
-        {Rating(product.rating)}
+        {Rating(product. rating)}
         <span className="ml-2 text-gray-500">({product.reviws})</span>
       </div>
       <div className="py-1 px-3">

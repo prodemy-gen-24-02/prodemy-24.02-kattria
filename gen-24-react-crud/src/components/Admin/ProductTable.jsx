@@ -1,27 +1,35 @@
 import React, { useState } from "react";
 import ProductForm from "./ProductForm";
-import { deleteProduct, updateProduct } from "./CrudService";
+import { deleteProduct, getProducts, updateProduct } from "./CrudService";
 import useSWR from "swr";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductTable = ({ sideBar }) => {
-  const fetcher = (url) => fetch(url).then((res) => res.json());
+  const fetcher = async () =>{
+    const res = await getProducts();
+    return res;
+  } 
   const { data, isLoading, isError, mutate } = useSWR(
-    "http://localhost:3001/products",
-    fetcher
-  );
-  const [editingProduct, setEditing] = useState(null);
+    '/products',
+       fetcher
+     );
+
+  // const fetcher = (url) => fetch(url).then((res) => res.json());
+  // const { data, isLoading, isError, mutate } = useSWR(
+  //   "http://localhost:3000/products",
+  //   fetcher
+  // );
+  const navigate = useNavigate();
+  //const [editingProduct, setEditing] = useState(null);
 
   const handleDelete = async (id) => {
     await deleteProduct(id);
     mutate(); // Refresh data
   };
 
-  const handleEdit = (product) => {
-    setEditing(product);
+  const handleEdit = (id) => {
+    navigate(`/admin/form-product/edit/${id}`);
   };
-
- 
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading products</div>;
@@ -64,12 +72,14 @@ const ProductTable = ({ sideBar }) => {
                 />
               </td>
               <td className="py-2 px-4 border-b">
+
                 <button
-                  onClick={() => handleEdit(product)}
+                  onClick={() => handleEdit(product.id)}
                   className="px-2 py-1 bg-green-900 text-white mr-2"
                 >
                   Edit
                 </button>
+                
                 <button
                   onClick={() => handleDelete(product.id)}
                   className="px-2 py-1 bg-green-900 text-white mr-2"
@@ -81,7 +91,7 @@ const ProductTable = ({ sideBar }) => {
           ))}
         </tbody>
       </table>
-      <Link to="/admin/form-product">
+      <Link to="/admin/form-product/new">
         <button
           className={`${
             sideBar ? "ml-72" : "mx-10"

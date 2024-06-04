@@ -4,9 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 
-import Header from "../layout/Header";
-import Navbar from "../layout/Navbar";
-import Footer from "../layout/Footer";
 import products from "../data/product";
 import Button from "../components/Button";
 
@@ -26,7 +23,7 @@ const Detail = () => {
 
   const [selectedThumbnail, setThumbnail] = useState("green");
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   const images = {
     green: product.image,
@@ -40,29 +37,28 @@ const Detail = () => {
     setMainImage(images[color]);
   };
 
-   const Rating = (rating) => {
-     return (
-       <div className="flex items-center">
-         {Array.from({ length: 5 }, (_, index) => (
-           <FontAwesomeIcon
-             key={index}
-             icon={faStar}
-             className={
-               index < rating
-                 ? "text-yellow-400 outline-[2px]"
-                 : "text-gray-400 outline-[20px]"
-             }
-           />
-         ))}
-       </div>
-     );
-   };
+  const Rating = (rating) => {
+    return (
+      <div className="flex items-center">
+        {Array.from({ length: 5 }, (_, index) => (
+          <FontAwesomeIcon
+            key={index}
+            icon={faStar}
+            className={
+              index < rating
+                ? "text-yellow-400 outline-[2px]"
+                : "text-gray-400 outline-[20px]"
+            }
+          />
+        ))}
+      </div>
+    );
+  };
 
   const [quantity, setQuantity] = useState(1);
 
   return (
-    
-      <Layout>
+    <Layout>
       <div>
         <div className="top">
           <p className="text-slate-700 my-[6px] mx-[30px]">
@@ -101,14 +97,14 @@ const Detail = () => {
               <h3 className="font-bold text-3xl">{product.name}</h3>
               <p className="text-[13px] pt-1 pb-2">{product.description}</p>
               <div className="flex text-xs text-green-900 space-x-1">
-               {Rating(product.rating)}
+                {Rating(product.rating)}
                 <span className="text-black">{product.reviews}</span>
               </div>
             </div>
 
             <div className="price pb-4 md:px-4 border-b">
-              <h3 className="font-semibold text-[20px] pt-2">$
-                {product.price}
+              <h3 className="font-semibold text-[20px] pt-2">
+                ${product.price}
                 <span>.00</span>
               </h3>
               <p className="text-[13px]">

@@ -11,33 +11,35 @@ import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import Button from "../components/Button";
 
-import greenImg from "../assets/4.png";
-import redImg from "../assets/3.png";
-import pinkImg from "../assets/7.png";
-import blackImg from "../assets/10.png";
-import whiteImg from "../assets/2.png";
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Detail = () => {
   const { id } = useParams();
+  const fetcher = (url) => fetch(url).then((res) => res.json());
   //const product = products.find((p) => p.id === parseInt(id));
   const { data: product, error } = useSWR(
-    `http://localhost:5000/products/${id}`,
+    `http://localhost:3000/products/${id}`,
     fetcher
   );
   const [quantity, setQuantity] = useState(1);
   const [mainImage, setMainImage] = useState(null);
   const [selectedThumbnail, setThumbnail] = useState(null);
 
-  useEffect(() => {
-    if (product) {
+    // useEffect(() => {
+    //   if (product) {
+    //     setMainImage(product.image);
+    //     const firstColor = Object.keys(product.color)[0];
+    //     //console.log(firstColor);
+    //     setThumbnail(firstColor);
+    //   }
+    // }, [product]);
+
+    if (!mainImage && product) {
       setMainImage(product.image);
       const firstColor = Object.keys(product.color)[0];
-      console.log(firstColor);
       setThumbnail(firstColor);
+      setMainImage(product.color[firstColor]);
     }
-  }, [product]);
 
   const handleThumbnail = (color) => {
     setThumbnail(color);
@@ -46,10 +48,10 @@ const Detail = () => {
     }
   };
 
-  if (error) return <div>Failed to load</div>;
+  if (error) return alert(JSON.stringify(error));
+  // (<div>Failed to load</div>);
   if (!product) return <div>Loading...</div>;
 
-  const images = {};
 
   // const Rating = (rating) => {
   //   return (

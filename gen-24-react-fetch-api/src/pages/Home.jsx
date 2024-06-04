@@ -11,7 +11,7 @@ import useSWR from "swr";
 const fetcher = (url) => fetch(url).then((res)=>res.json());
 
 const Home = () => {
-  const {data, error} = useSWR ('http://localhost:5000/products', fetcher);
+  const {data, error} = useSWR ('http://localhost:3000/products', fetcher);
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 

@@ -47,9 +47,9 @@ const ProductCard = ({ product }) => {
       <div className="py-1 px-3">
         <Button>Add to Cart</Button>
         {/* <Button onClick={() => navigate("/detail")}>View Detail</Button> */}
-        <Link to={`/detail/${product.id}`}>
+        {/* <Link to={`/detail/${product.id}`}>
         <Button onClick={() => navigate("/detail")}>View Detail</Button>
-        </Link>
+        </Link> */}
       </div>
     </div>
     </Link>

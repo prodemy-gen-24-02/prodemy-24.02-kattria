@@ -59,7 +59,7 @@ const deleteTodos = async (id) => {
     await getAll(); // Read
     //setInterval(getAll,3000);
     addTodos(newToDo,5000); // Create
-
+   
     await updateTodos(25, updatedData); // Update
 
     await deleteTodos(1); // Delete

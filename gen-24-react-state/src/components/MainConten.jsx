@@ -13,7 +13,7 @@ import Rating from "../../../gen-24-react-basic/src/components/Rating";
 
 const MainContent = () => {
   const [mainImage, setMainImage] = useState(greenImg);
-  const [selectedThumnail, setThumnail] = useState("green");
+  const [selectedThumbnail, setThumbnail] = useState("green");
   const images = {
     green: greenImg,
     red: redImg,
@@ -21,8 +21,8 @@ const MainContent = () => {
     black: blackImg,
     white: whiteImg,
   };
-  const handleThumnail = (color) => {
-    setThumnail(color);
+  const handleThumbnail = (color) => {
+    setThumbnail(color);
     setMainImage(images[color]);
   };
 
@@ -51,11 +51,11 @@ const MainContent = () => {
               <img
                 key={color}
                 className={`w-[90px] h-[90px] object-contain border bg-slate-200 rounded-xl hover:scale-90 ${
-                  selectedThumnail === color ? "border-4 border-blue-500" : ""
+                  selectedThumbnail === color ? "border-4 border-blue-500" : ""
                 }`}
                 src={images[color]}
                 alt={color}
-                onClick={() => handleThumnail(color)}
+                onClick={() => handleThumbnail(color)}
               />
             ))}
           </div>
@@ -103,9 +103,9 @@ const MainContent = () => {
                       ? "bg-black"
                       : "bg-slate-100"
                   } ${
-                    selectedThumnail === color ? "border-4 border-blue-500" : ""
+                    selectedThumbnail === color ? "border-4 border-blue-500" : ""
                   }`}
-                  onClick={() => handleThumnail(color)}
+                  onClick={() => handleThumbnail(color)}
                 ></button>
               ))}
             </div>

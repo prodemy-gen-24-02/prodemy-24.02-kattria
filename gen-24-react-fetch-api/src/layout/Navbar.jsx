@@ -9,9 +9,13 @@ import {
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import categories from "../data/categories";
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Navbar = () => {
+  const { data, error } = useSWR("http://localhost:3000/categories", fetcher);
+
   const [showDropdown, setShowDropdown] = useState(false);
   const [showBugerMenu, setShowBurgerMenu] = useState(false);
 
@@ -22,15 +26,18 @@ const Navbar = () => {
     setShowBurgerMenu(!showBugerMenu);
   };
 
+  if (error) return <div>Failed to load</div>;
+  if (!data) return <div>Loading...</div>;
+
   return (
     <nav className="bg-white shadow">
       <div className="container mx-auto flex justify-between items-center py-4 px-[30px]">
         <div className="flex items-center">
           <Link to="/home">
-          <img
-            src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
-            alt="Logo"
-          />
+            <img
+              src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg"
+              alt="Logo"
+            />
           </Link>
         </div>
         <div
@@ -69,7 +76,7 @@ const Navbar = () => {
                       Popular Categories
                     </h2>
                     <div className="grid grid-cols-2 gap-x-1 gap-y-3">
-                      {categories.map((category) => (
+                      {data.map((category) => (
                         <div
                           key={category.name}
                           className={`${
@@ -77,7 +84,7 @@ const Navbar = () => {
                           } flex w-[350px] items-start space-x-4 px-4 pt-3 border rounded-lg bg-gray-100 cursor-pointer`}
                         >
                           <img
-                            src={category.imgSrc}
+                            src={import.meta.env.BASE_URL + category.imgSrc}
                             alt={category.name}
                             className="h-16 object-cover"
                           />

@@ -3,13 +3,7 @@ node_modules
 gen-24-react-component/public/vite.svg
 gen-24-react-component/package-lock.json
 gen-24-react-component/vite.config.js
-gen-24-react-component/tailwind.config.js
-gen-24-react-component/package.json
 gen-24-react-component/postcss.config.js
-package-lock.json
-package.json
 gen-24-react-basic/vite.config.js
-gen-24-react-basic/tailwind.config.js
 gen-24-react-basic/postcss.config.js
 gen-24-react-basic/public/vite.svg
-gen-24-react-state/tailwind.config.js

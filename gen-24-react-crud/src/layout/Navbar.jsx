@@ -14,7 +14,7 @@ import useSWR from "swr";
 const fetcher = (url) => fetch(url).then((res)=>res.json());
 
 const Navbar = () => {
-  const {data, error} = useSWR ('http://localhost:3001/categories', fetcher);
+  const {data, error} = useSWR ('http://localhost:3000/categories', fetcher);
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [showBugerMenu, setShowBurgerMenu] = useState(false);
@@ -67,7 +67,7 @@ const Navbar = () => {
               {showDropdown && (
                 // ---CategoriesMenu
                 <div
-                  className={`absolute mt-2 w-[800px] bg-white border border-gray-200 shadow-lg rounded-3xl ${
+                  className={`absolute mt-2 w-[800px] md:w-[800px] sm:w-[550px] bg-white border border-gray-200 shadow-lg rounded-3xl ${
                     showBugerMenu ? "-translate-x-56" : "transform-none"
                   }`}
                 >
@@ -81,13 +81,16 @@ const Navbar = () => {
                           key={category.name}
                           className={`${
                             showBugerMenu ? "w-[250px]" : "w-[350px]"
-                          } flex w-[350px] items-start space-x-4 px-4 pt-3 border rounded-lg bg-gray-100 cursor-pointer`}
+                          } flex w-[350px] md:w-[350px] items-start space-x-4 px-4 p-2 border rounded-lg sm:w-64 bg-gray-100 cursor-pointer`}
                         >
+                          <div className="h-14 w-16">
                           <img
                             src={import.meta.env.BASE_URL+category.imgSrc}
                             alt={category.name}
                             className="h-16 object-cover"
                           />
+                          </div>
+                          
                           <div className="h-[20px]">
                             <h3 className="text-base font-bold hover:text-sky-700 transition-all">
                               {category.name}
