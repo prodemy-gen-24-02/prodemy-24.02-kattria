@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
     const { cartItems, removeFromCart, updateQuantity } = useCart();
-    const handleQuantityChange = (id, quantity) => {
-        updateQuantity(id, parseInt(quantity));
-    };
+    // const handleQuantityChange = (id, quantity) => {
+    //     updateQuantity(id, parseInt(quantity));
+    // };
 
     return (
         <>
@@ -23,8 +23,8 @@ const Cart = () => {
                         Cart is Empty
                     </div>
                 ) : (
-                    <div>
-                        {cartItems.map((item) => (
+                    
+                        cartItems.map((item) => (
                             <div
                                 key={item.id}
                                 className="flex items-center justify-between p-4 border-b"
@@ -61,8 +61,8 @@ const Cart = () => {
                                     Remove
                                 </Button>
                             </div>
-                        ))}
-                    </div>
+                        ))
+                    
                 )}
                 <Link to="/checkout">
                     <button className="flex bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">

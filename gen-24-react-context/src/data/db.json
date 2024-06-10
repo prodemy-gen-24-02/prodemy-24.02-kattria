@@ -51,12 +51,12 @@
             "price": 100,
             "reviews": 121,
             "rating": 5,
-            "image": "src/assets/2.png",
+            "image": "src/assets/9.png",
             "color": [
                 {
                     "name": "Green",
                     "hex": "#93c47d",
-                    "src": "src/assets/2.png"
+                    "src": "src/assets/9.png"
                 },
                 { "name": "Red", "hex": "#cc0000", "src": "src/assets/3.png" },
                 { "name": "Blue", "hex": "#cfe2f3", "src": "src/assets/4.png" },
@@ -135,7 +135,7 @@
             "price": 500,
             "reviews": 121,
             "rating": 5,
-            "image": "src/assets/6.png",
+            "image": "src/assets/10.png",
             "color": [
                 {
                     "name": "Green",

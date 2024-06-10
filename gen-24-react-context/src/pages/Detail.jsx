@@ -32,14 +32,23 @@ const Detail = () => {
         setColor(color.hex);
     };
 
+    // const handleAddToCart = () => {
+    //     addToCart({
+    //         id:product.id,
+    //         name: product.name,
+    //         price: product.price,
+    //         image:mainImage,
+    //         color: selectedColor,
+    //         quantity: parseInt(quantity),
+    //     })
+    //     window.alert("Produk berhasil di tambahkan!")
+    //     // setAlert(true);
+    //     // setTimeout(()=> setAlert(false),3000)
+    // }
     const handleAddToCart = () => {
-        addToCart({
-            id:product.id,
-            name: product.name,
-            price: product.price,
-            image:mainImage,
-            color: selectedColor,
-            quantity: parseInt(quantity),
+        addToCart({ ...product,
+            image:selectedColor.src,
+            quantity: setQuantity,
         })
         window.alert("Produk berhasil di tambahkan!")
         // setAlert(true);

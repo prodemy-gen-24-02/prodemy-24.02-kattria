@@ -7,6 +7,20 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = ({ product }) => {
     const navigate = useNavigate();
+    // const { addToCart } = useCart();
+    // const handleAddToCart = () => {
+    //     addToCart({
+    //         id: product.id,
+    //         name: product.name,
+    //         price: product.price,
+    //         image: product.image,
+    //         color: product.color[0],
+    //         quantity: parseInt(1),
+    //     });
+    //     window.alert("Produk berhasil di tambahkan!");
+    //     // setAlert(true);
+    //     // setTimeout(()=> setAlert(false),3000)
+    // };
 
     const rating = (rating) => {
         return (
@@ -58,7 +72,7 @@ const ProductCard = ({ product }) => {
                     </span>
                 </div>
                 <div className="py-1 px-3">
-                    <Button>Add to Cart</Button>
+                    <Button >Add to Cart</Button>
                     {/* <Button onClick={() => navigate("/detail")}>View Detail</Button> */}
                     {/* <Link to={`/detail/${product.id}`}>
         <Button onClick={() => navigate("/detail")}>View Detail</Button>
