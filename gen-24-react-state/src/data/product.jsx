@@ -17,6 +17,10 @@ const products = [
       image: product1,
       reviews: 121,
       rating:5,
+      category: {
+        id: 5,
+        name: "Headphone",
+    },
     },
     {
       id : 2,
@@ -26,6 +30,10 @@ const products = [
       image: product2,
       reviews: 121,
       rating:5,
+      category: {
+        id: 5,
+        name: "Headphone",
+    },
     },
     {
       id : 3,
@@ -35,6 +43,10 @@ const products = [
       image: product3,
       reviews: 121,
       rating:5,
+      category: {
+        id: 5,
+        name: "Headphone",
+    },
     },
     {
       id : 4,
@@ -44,6 +56,10 @@ const products = [
       image: product4,
       reviews: 121,
       rating:5,
+      category: {
+        id: 5,
+        name: "Headphone",
+    },
     },
     {
       id : 5,
@@ -53,6 +69,10 @@ const products = [
       image: product5,
       reviews: 121,
       rating:5,
+      category: {
+        id: 5,
+        name: "Headphone",
+    },
     },
     {
       id : 6,
@@ -62,6 +82,10 @@ const products = [
       image: product6,
       reviews: 121,
       rating:5,
+      category: {
+        id: 5,
+        name: "Headphone",
+    },
     },
     {
       id : 7,
@@ -71,6 +95,10 @@ const products = [
       image: product7,
       reviews: 121,
       rating:5,
+      category: {
+        id: 5,
+        name: "Headphone",
+    },
     },
     {
       id : 8,
@@ -80,6 +108,10 @@ const products = [
       image: product3,
       reviews: 121,
       rating:4,
+      category: {
+        id: 5,
+        name: "Headphone",
+    },
     },
   ];
 

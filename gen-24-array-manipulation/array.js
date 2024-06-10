@@ -1,4 +1,4 @@
-const products = [
+let products = [
     {
         id: 1,
         name: "Bose BT Earphones",
@@ -73,33 +73,8 @@ function addProduct(newProduct) {
         console.log("Product berhasil ditambahkan", "\n", newProduct);
     }
 }
-
-function deleteProduct(id) {
-    const productIndex = products.findIndex((product) => product.id === id);
-    if (productIndex !== -1) {
-        products.splice(productIndex, 1);
-        console.log("Product berhasil di hapus");
-    } else {
-        console.log("Produk tidak ditemukan");
-    }
-}
-console.log(deleteProduct(6));
-
-function editProduct(id, newName) {
-    const product = products.find((product) => product.id === id);
-    if (product) {
-        product.name = newName;
-        console.log("Name berhasil di update");
-    } else {
-        console.log("Product tidak ditemukan");
-    }
-}
-editProduct(2, "Update Name");
-console.log("Product setelah di update", products);
-
-// console.log(products);
 // addProduct({
-//     id:1,
+//     id:4,
 //     name: "Sony Headphone",
 //     description : "Table with purifier",
 //     price : 500.00,
@@ -119,4 +94,30 @@ console.log("Product setelah di update", products);
 //         "white : src/assets/7.png"
 //     ]
 // });
-//console.log("Setelah porduct di tambahkan: \n",products);
+// console.log("Setelah porduct di tambahkan: \n",products);
+
+function deleteProduct(id) {
+    const productIndex = products.findIndex((product) => product.id === id);
+    if (productIndex !== -1) {
+        products.splice(productIndex, 1);
+        console.log("Product berhasil di hapus");
+    } else {
+        console.log("Produk tidak ditemukan");
+    }
+}
+//  console.log(deleteProduct(6));
+
+function editProduct(id, newName) {
+    const product = products.find((product) => product.id === id);
+    if (product) {
+        product.name = newName;
+        console.log("Name berhasil di update");
+    } else {
+        console.log("Product tidak ditemukan");
+    }
+}
+editProduct(2, "Update Name");
+console.log("Product setelah di update", products);
+
+// console.log(products);
+

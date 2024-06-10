@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
     const { cartItems, removeFromCart, updateQuantity } = useCart();
-    // const handleQuantityChange = (id, quantity) => {
-    //     updateQuantity(id, parseInt(quantity));
-    // };
+    const handleQuantityChange = (id, quantity) => {
+        updateQuantity(id, parseInt(quantity));
+    };
 
     return (
         <>

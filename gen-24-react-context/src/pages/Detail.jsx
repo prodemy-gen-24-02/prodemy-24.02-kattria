@@ -45,11 +45,14 @@ const Detail = () => {
     //     // setAlert(true);
     //     // setTimeout(()=> setAlert(false),3000)
     // }
+    
     const handleAddToCart = () => {
+        console.log(mainImage)
         addToCart({ ...product,
-            image:selectedColor.src,
-            quantity: setQuantity,
+            image:mainImage,
+            quantity: quantity,
         })
+
         window.alert("Produk berhasil di tambahkan!")
         // setAlert(true);
         // setTimeout(()=> setAlert(false),3000)

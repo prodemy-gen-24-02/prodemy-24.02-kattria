@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
       <div className="max-w-sm relative  w-64 p-1.5 mb-10 rounded overflow-hidden transition-all hover:scale-90 ">
         <div className="  bg-slate-100 h-60 object-contain">
           <img
-            src={product.image}
+            src={product.image[0]}
             alt={product.name}
             className="w-fit object-center"
           />
