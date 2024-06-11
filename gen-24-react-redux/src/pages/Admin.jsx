@@ -1,8 +1,7 @@
 import React from "react";
 import useSWR from "swr";
 import { createProduct } from "../components/Admin/CrudService";
-// import DashboardProduct from "../components/Admin/DashboardProduct";
-// import Test from "../components/test";
+import DashboardProduct from "../components/Admin/DashboardProduct";
 
 const Admin = () => {
   const fetcher = async () => {
@@ -16,7 +15,7 @@ const Admin = () => {
   };
   return (
     <div>
-      {/* <DashboardProduct /> */}
+      <DashboardProduct />
       {/* <Test/> */}
     </div>
   );

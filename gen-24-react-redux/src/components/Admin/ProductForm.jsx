@@ -21,7 +21,8 @@ const ProductForm = ({sideBar}) => {
             description:"",
             price:"",
             image:"",
-            color: [{ colorName:"", colorHex:"" }],
+            category:"",
+            color: [{ name:"", hex:"" , src:""}],
         },
     });
     const { fields, append, remove } = useFieldArray({
@@ -35,10 +36,9 @@ const ProductForm = ({sideBar}) => {
             getProductById(id).then((product) => {
                 reset({
                     ...product,
-                    color: product.color.map((color) => {
-                        const [colorName, colorHex] = color.split(":");
-                        return { colorName, colorHex };
-                    }),
+                    color: product.color.map((color)=>({
+                        name:color.name, hex: color.hex, src: color.src,
+                    })),
                 });
             });
         } else {
@@ -47,44 +47,22 @@ const ProductForm = ({sideBar}) => {
                 description:"",
                 price:"",
                 image:"",
-                color: [{ colorName:"", colorHex:"" }],
+                category:"",
+                color: [{ name:"", hex:"", src:"" }],
             });
         }
     }, [id]);
-    
 
-    // const onSubmit = data => {
-    //  console.log(data);
-    //  if(product){
-    //    clearProduct();
-    //  }else{
-    //    reset();
-    //  }
-    //  onFormSubmit();
-    // }
 
     const handleFormSubmit = (data) => {
         //console.log(data);
         const formattedData = {
             ...data,
             color: data.color.map(
-                ({ colorName, colorHex }) => `${colorName}:${colorHex}`
+                ({ name, hex, src }) => ({name, hex, src})
             ),
-            //        return acc;
-            //      }, {}),
         };
-        // onSubmit(formattedData);
-        //     name,
-        //     description,
-        //     price: priceValue,
-        //  image,
-        //  color,
-        //     });
-        //   setName("");
-        //   setDesc("");
-        //   setPrice("");
-        //   setImage("");
-        //   setColor({});
+        
         if (id) {
             updateProduct(id, formattedData).then(() => {
                 navigate("/admin/product");
@@ -96,15 +74,6 @@ const ProductForm = ({sideBar}) => {
         }
     };
 
-    // const handleUpdate = async (updatedProduct) => {
-    //     await updateProduct(editingProduct.id, updatedProduct);
-    //     setEditing(null);
-    //     mutate(); // Refresh data
-    // };
-    // const handleCreate = async (product) => {
-    //     await createProduct(product);
-    //     mutate();
-    // };
 
     return (
         <form
@@ -138,6 +107,17 @@ const ProductForm = ({sideBar}) => {
                 )}
             </div>
             <div>
+                <label className="block">Category</label>
+                <input
+                    {...register("category")}
+                    className="w-full p-2 border"
+                    placeholder="Product Category"
+                />
+                {errors.category && (
+                    <span className="text-red-500">{errors.category.message}</span>
+                )}
+            </div>
+            <div>
                 <label className="block">Price</label>
                 <input
                     type="number"
@@ -165,23 +145,33 @@ const ProductForm = ({sideBar}) => {
                 {fields.map((field, index) => (
                     <div key={field.id} className="flex items-center">
                         <input
-                            {...register(`color.${index}.colorName`)}
+                            {...register(`color.${index}.name`)}
                             className="w-1/3 p-2 border mr-2"
                             placeholder="Color Name"
                         />
-                        {errors.color && errors.color[index]?.colorName && (
+                        {errors.color && errors.color[index]?.name && (
                             <span className="text-red-500">
-                                {errors.color[index].colorName.message}
+                                {errors.color[index].name.message}
                             </span>
                         )}
                         <input
-                            {...register(`color.${index}.colorHex`)}
+                            {...register(`color.${index}.hex`)}
                             className="w-1/3 p-2 border mr-2"
                             placeholder="Color Hex"
                         />
-                        {errors.color && errors.color[index]?.colorHex && (
+                        {errors.color && errors.color[index]?.hex && (
                             <span className="text-red-500">
-                                {errors.color[index].colorHex.message}
+                                {errors.color[index].hex.message}
+                            </span>
+                        )}
+                        <input
+                            {...register(`color.${index}.src`)}
+                            className="w-1/3 p-2 border mr-2"
+                            placeholder="Color Image"
+                        />
+                        {errors.color && errors.color[index]?.src && (
+                            <span className="text-red-500">
+                                {errors.color[index].src.message}
                             </span>
                         )}
                         <button
@@ -201,7 +191,7 @@ const ProductForm = ({sideBar}) => {
                 <div className="mt-2 ">
                     <button
                         type="button"
-                        onClick={() => append({ colorName: "", colorHex: "" })}
+                        onClick={() => append({ name: "", hex: "", src:"" })}
                         className="bg-blue-500 text-white px-2 py-1 rounded"
                     >
                         Add Color

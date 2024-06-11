@@ -13,15 +13,8 @@ const ProductTable = ({ sideBar }) => {
     '/products',
        fetcher
      );
-
-  // const fetcher = (url) => fetch(url).then((res) => res.json());
-  // const { data, isLoading, isError, mutate } = useSWR(
-  //   "http://localhost:3000/products",
-  //   fetcher
-  // );
   const navigate = useNavigate();
-  //const [editingProduct, setEditing] = useState(null);
-
+  
   const handleDelete = async (id) => {
     await deleteProduct(id);
     mutate(); // Refresh data
