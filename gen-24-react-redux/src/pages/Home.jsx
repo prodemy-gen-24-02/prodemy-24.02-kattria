@@ -5,17 +5,34 @@ import ProductCard from "../components/ProductCard";
 import useSWR from "swr";
 import Layout from "../layout/Layout";
 import CategoriesCard from "../components/CategoriesCard";
+import { getCategories, getProducts } from "../components/Admin/CrudService";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Home = () => {
-    const { data, error } = useSWR("http://localhost:3000/products", fetcher);
-    // const { categories, errors } = useSWR(
-    //     "http://localhost:3001/categories",
-    //     fetcher
-    // );
-    if (error ) return <div>Failed to load</div>;
-    if (!data ) return <div>Loading...</div>;
+    const category = async () => {
+        const res = await getCategories();
+        return res;
+    };
+
+    const product = async () => {
+        const res = await getProducts();
+        return res;
+    };
+    const { data: products, error: productError } = useSWR(
+        "/products",
+        product
+    );
+
+    const { data: categories, error: categoryError } = useSWR(
+        "/categories",
+        category
+    );
+
+    if (productError || categoryError) return <div>Failed to load</div>;
+    if (!products || !categories) return <div>Loading...</div>;
+
+    console.log(categories);
 
     return (
         <div>
@@ -39,11 +56,11 @@ const Home = () => {
                         Buy Now!
                     </Button>
                 </div>
-                {/* <div className="p-[50px]">
+                <div className="p-[50px]">
                     <h1 className="text-3xl font-bold mb-6">
                         Shop our top categories
                     </h1>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1">
                         {categories.map((category) => (
                             <CategoriesCard
                                 key={category.id}
@@ -51,13 +68,13 @@ const Home = () => {
                             />
                         ))}
                     </div>
-                </div> */}
+                </div>
                 <div className="p-[50px] bg-white">
                     <h1 className="text-3xl font-bold mb-6">
                         Headphones For You!
                     </h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
-                        {data.map((product) => (
+                        {products.map((product) => (
                             <ProductCard key={product.id} product={product} />
                         ))}
                     </div>

@@ -1,35 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useSWR from "swr";
+import { getCategories} from "../CrudService";
 
 const CategoryTable = ({ sideBar }) => {
-  const fetcher = (url) => fetch(url).then((res) => res.json());
-  const { data, isLoading, isError, mutate } = useSWR(
-    "http://localhost:3001/categories",
-    fetcher
-  );
-  const [editingCategories, setEditing] = useState(null);
+  const fetcher =async()=> {
+    const res = await getCategories();
+    return res;
+  }
+  const{data, isLoading, isError, mutate} = useSWR('/categories', fetcher)
+
+  const navigate = useNavigate();
+
   const handleDelete = async (id) => {
     await deleteProduct(id);
     mutate(); // Refresh data
   };
 
-  const handleEdit = (category) => {
-    setEditing(category);
+  const handleEdit = (id) => {
+    navigate(`/admin/form-category/edit/${id}`)
   };
 
-  const handleUpdate = async (updatedCategory) => {
-    await updateProduct(editingCategories.id, updatedCategory);
-    setEditing(null);
-    mutate(); // Refresh data
-  };
-  const handleCreate = async (product) => {
-    await createProduct(product);
-    mutate();
-  };
 
   if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading ategory</div>;
+  if (isError) return <div>Error loading Category</div>;
 
   return (
     <div className="mt-24">
@@ -59,7 +53,7 @@ const CategoryTable = ({ sideBar }) => {
               <td className="py-2 px-4 border">{category.items}</td>
               <td className="py-2 px-4 border-b">
                 <button
-                  onClick={() => handleEdit(category)}
+                  onClick={() => handleEdit(category.id)}
                   className="px-2 py-1 bg-green-900 text-white mr-2"
                 >
                   Edit
@@ -75,7 +69,7 @@ const CategoryTable = ({ sideBar }) => {
           ))}
         </tbody>
       </table>
-      <Link to="/admin/form">
+      <Link to="/admin/form-category/new">
         <button
           className={`${
             sideBar ? "ml-72" : "mx-10"

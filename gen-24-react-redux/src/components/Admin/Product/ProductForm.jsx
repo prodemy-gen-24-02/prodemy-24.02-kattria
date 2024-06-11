@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useFieldArray, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import validationSchema from "./validationSchema";
-import { createProduct, getProductById, updateProduct } from "./CrudService";
+import validationSchema from "../validationSchema";
+import { createProduct, getProductById, updateProduct } from "../CrudService";
 
-const ProductForm = ({sideBar}) => {
+const ProductForm = ({ sideBar }) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const {
@@ -17,12 +17,12 @@ const ProductForm = ({sideBar}) => {
     } = useForm({
         resolver: yupResolver(validationSchema),
         defaultValues: {
-            name:"",
-            description:"",
-            price:"",
-            image:"",
-            category:"",
-            color: [{ name:"", hex:"" , src:""}],
+            name: "",
+            description: "",
+            price: "",
+            image: "",
+            category: "",
+            color: [{ name: "", hex: "", src: "" }],
         },
     });
     const { fields, append, remove } = useFieldArray({
@@ -32,37 +32,36 @@ const ProductForm = ({sideBar}) => {
 
     useEffect(() => {
         if (id) {
-          //console.log(getProductById(id))
+            //console.log(getProductById(id))
             getProductById(id).then((product) => {
                 reset({
                     ...product,
-                    color: product.color.map((color)=>({
-                        name:color.name, hex: color.hex, src: color.src,
+                    color: product.color.map((color) => ({
+                        name: color.name,
+                        hex: color.hex,
+                        src: color.src,
                     })),
                 });
             });
         } else {
             reset({
-                name:"",
-                description:"",
-                price:"",
-                image:"",
-                category:"",
-                color: [{ name:"", hex:"", src:"" }],
+                name: "",
+                description: "",
+                price: "",
+                image: "",
+                category: "",
+                color: [{ name: "", hex: "", src: "" }],
             });
         }
     }, [id]);
-
 
     const handleFormSubmit = (data) => {
         //console.log(data);
         const formattedData = {
             ...data,
-            color: data.color.map(
-                ({ name, hex, src }) => ({name, hex, src})
-            ),
+            color: data.color.map(({ name, hex, src }) => ({ name, hex, src })),
         };
-        
+
         if (id) {
             updateProduct(id, formattedData).then(() => {
                 navigate("/admin/product");
@@ -73,7 +72,6 @@ const ProductForm = ({sideBar}) => {
             });
         }
     };
-
 
     return (
         <form
@@ -114,7 +112,9 @@ const ProductForm = ({sideBar}) => {
                     placeholder="Product Category"
                 />
                 {errors.category && (
-                    <span className="text-red-500">{errors.category.message}</span>
+                    <span className="text-red-500">
+                        {errors.category.message}
+                    </span>
                 )}
             </div>
             <div>
@@ -191,7 +191,7 @@ const ProductForm = ({sideBar}) => {
                 <div className="mt-2 ">
                     <button
                         type="button"
-                        onClick={() => append({ name: "", hex: "", src:"" })}
+                        onClick={() => append({ name: "", hex: "", src: "" })}
                         className="bg-blue-500 text-white px-2 py-1 rounded"
                     >
                         Add Color

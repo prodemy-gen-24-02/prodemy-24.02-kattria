@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SideBar from "../../layout/Admin/SideBar";
-import Navbar from "../../layout/Admin/NavbarAdmin";
+import SideBar from "../../../layout/Admin/SideBar";
+import Navbar from "../../../layout/Admin/NavbarAdmin";
 import CategoryTable from "./CategoryTable";
 
 const DashboardCategory = () => {
