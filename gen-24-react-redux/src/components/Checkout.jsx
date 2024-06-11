@@ -48,14 +48,19 @@ const Checkout = () => {
                                     />
                                     <div className="ml-4 mr-4 w-full flex justify-between items-center ">
                                         <div>
-                                            <h3 className="text-lg font-semibold">{item.name}</h3>
+                                            <h3 className="text-lg font-semibold">
+                                                {item.name}
+                                            </h3>
                                             <p>Color: {item.color}</p>
                                         </div>
 
                                         <div>
-                                            <p className="font-semibold text-right">${item.price}</p>
-                                            <p className="font-semibold">Quantity: {item.quantity}</p>
-                                            
+                                            <p className="font-semibold text-right">
+                                                ${item.price}
+                                            </p>
+                                            <p className="font-semibold">
+                                                Quantity: {item.quantity}
+                                            </p>
                                         </div>
                                     </div>
                                     {/* <div className="text-lg font-semibold">
@@ -211,23 +216,23 @@ const Checkout = () => {
                             </label>
                         </div>
                     </div>
-                    <div className="flex justify-between mb-4">
+                    {/* <div className="flex justify-between mb-4">
                         <img
-                            src="https://via.placeholder.com/50"
+                            src=""
                             alt="Amazon"
                             className="w-12 h-12"
                         />
                         <img
-                            src="https://via.placeholder.com/50"
+                            src=""
                             alt="Mastercard"
                             className="w-12 h-12"
                         />
                         <img
-                            src="https://via.placeholder.com/50"
+                            src=""
                             alt="Visa"
                             className="w-12 h-12"
                         />
-                    </div>
+                    </div> */}
                     <div className="mb-4">
                         <label className="block mb-2" htmlFor="email">
                             Email
