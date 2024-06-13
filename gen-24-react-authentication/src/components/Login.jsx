@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import{ useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { login } from "../redux/authSlice";
+import axios from "axios";
+import { setUser } from "../redux/authTokenSlice";
 
 const schema = yup.object().shape({
     email:yup.string().email('Invalid email format').required('Email is required'),
@@ -18,12 +20,24 @@ const Login = ()=>{
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {error} = useSelector((state)=>state.auth);
+    const {error, isLoggedIn} = useSelector((state)=>state.auth);
 
     const onSubmit = async (data) => {
       await dispatch(login(data.email, data.password));
-      navigate('/')
+      if(isLoggedIn){
+        navigate('/')
+      }
     };
+    // const onSubmit = (data) =>{
+    //     axios.post("http://localhost:3000/login", data)
+    //     .then((res)=>{
+    //         const{accessToken, user} = res.data;
+    //         dispatch(setToken(accessToken));
+    //         dispatch(setUser(user));
+    //         navigate("/")
+    //     })
+    //     .catch((error)=>console.log(error))
+    // }
     return(
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8 space-y-3 bg-white rounded shadow-md">
