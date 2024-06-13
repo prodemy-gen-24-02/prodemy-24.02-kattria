@@ -18,7 +18,7 @@ const Login = ()=>{
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {error, status} = useSelector((state)=>state.auth);
+    const {error} = useSelector((state)=>state.auth);
 
     const onSubmit = async (data) => {
       await dispatch(login(data.email, data.password));

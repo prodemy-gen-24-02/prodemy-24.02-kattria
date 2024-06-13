@@ -53,7 +53,12 @@ const { user } = useSelector((state) => state.auth);
                     element={<DashboardForm />}
                 />
 
-                <Route path="/cart" element={<Cart />} />
+
+                <Route path="/cart" element={ user?.role === "user" ? (
+                            <Cart />
+                        ) : (
+                            <Navigate to="/login" />
+                        )} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/login" element={<Login />} />
             </Routes>

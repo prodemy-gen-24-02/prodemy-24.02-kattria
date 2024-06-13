@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +8,7 @@ import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 
 import Button from "../components/Button";
 import Layout from "../layout/Layout";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../redux/cartSlice";
 
 const Detail = () => {
@@ -19,7 +19,10 @@ const Detail = () => {
         `http://localhost:3000/products/${id}`,
         fetcher
     );
+
+    const { user } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [quantity, setQuantity] = useState(1);
     const [mainImage, setMainImage] = useState("");
@@ -32,19 +35,27 @@ const Detail = () => {
     const handleColorSelect = (color) => {
         setMainImage(color.src);
         setColor(color.name);
-       // console.log(selectedColor);
+        // console.log(selectedColor);
     };
 
     //const products = data.find(p=>p.id===parseInd(id));
 
     const handleAddToCart = () => {
-        dispatch(addItem({
-                ...product,
-                image: mainImage,
-                color: selectedColor,
-                quantity:quantity,
-        }));
-        window.alert("Produk berhasil di tambahkan!");
+        {
+            user?.role === "user" ? (
+                dispatch(
+                    addItem({
+                        ...product,
+                        image: mainImage,
+                        color: selectedColor,
+                        quantity: quantity,
+                    })
+                ),
+                window.alert("Produk berhasil di tambahkan!")
+            ) : (
+                navigate('/login')
+            );
+        }
     };
 
     useEffect(() => {

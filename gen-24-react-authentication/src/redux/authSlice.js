@@ -26,11 +26,9 @@ export const authSlice = createSlice({
             state.error=action.payload;
         },
         logout:(state) =>{
-            state.user = "",
-            state.token="",
-            state.error="",
             localStorage.removeItem('token');
-            localStorage.removeItem('user')
+            localStorage.removeItem('user');
+            return{...initialState}
         }
     }
 })
@@ -43,9 +41,14 @@ export const login = (email, password) => async (dispatch) => {
         email,
         password,
       });
-      dispatch(loginSuccess(response.data));
+      if(response.data && response.data.accessToken){
+        dispatch(loginSuccess(response.data));
+      } else{
+        dispatch(loginFailure('User not registered.'));
+      }
+      
     } catch (error) {
-      dispatch(loginFailure(error.message));
+      dispatch(loginFailure(error.response?.data?.message ||'Login Failed!'));
     }
   };
 
