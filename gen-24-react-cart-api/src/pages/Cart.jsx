@@ -18,6 +18,8 @@ const Cart = () => {
     // const { cartItems, removeFromCart, updateQuantity } = useCart();
 
     const cartItems = useSelector((state) => state.cart.items);
+    console.log(cartItems);
+   // const selectedItems = useSelector((state) => state.cart.selectedItems);
     const dispatch = useDispatch();
     // const navigate = useNavigate();
 
@@ -33,27 +35,31 @@ const Cart = () => {
     // const getCartItems = async ()=>{
     //     await axios.get('http:localhost:3000/cart').then((res)=>{dispatch(setCartItems(res.data))})
     // }
+    // console.log(getCartItems());
     // useEffect(()=>{
     //     getCartItems()
     // },[])
 
     const handleIncrement = async (productId, color) => {
         const foundItem = cartItems.find((item)=> item.productId === productId && item.color === color);
-        console.log(foundItem.cartId);
+        //console.log(foundItem);
         const payload ={
-            ...foundItem, qty:qty+=foundItem.qty
+            ...foundItem, 
+            quantity : foundItem.quantity + 1
         }
-        await axios.put(`http://localhost:3000/cart/${foundItem.id}`,payload)
-        .then((res)=>{dispatch(incrementQuantity(res.data));
+        console.log(payload);
+         await axios.put(`http://localhost:3000/cart/${foundItem.id}`,payload)
+         .then((res)=>{dispatch(incrementQuantity(res.data));
 
-        })
+         })
         
     };
     const handleDecrement = async(productId, color) => {
         const foundItem = cartItems.find((item)=> item.productId === productId && item.color === color);
         console.log(foundItem);
         const payload ={
-            ...foundItem, qty:foundItem.qty-1
+            ...foundItem,
+            quantity : foundItem.quantity-1
         }
         await axios.put(`http://localhost:3000/cart/${foundItem.id}`,payload)
         .then((res)=>{dispatch(decrementQuantity(res.data));
@@ -62,16 +68,23 @@ const Cart = () => {
     const handleRemove = async (productId, color) => {
         const foundItem = cartItems.find((item)=> item.productId === productId && item.color === color);
         console.log(foundItem);
-        await axios.delete(`http://localhost:3000/cart/${productId}`)
-        .then((res)=>{dispatch(removeItem(res.data));
+        await axios.delete(`http://localhost:3000/cart/${foundItem.id}`)
+        .then((res)=>{dispatch(removeItem(res.data.productId));
         })
     };
-    const handleToggleSelect=(id,color)=>{
-        dispatch(toggleSelect({id,color}))
-    }
+    // const handleToggleSelect=(item)=>{
+    //     dispatch(toggleSelect(item))
+    // }
 
-    const selectedItems = cartItems.filter(item =>item.selected);
-    const subtotal = selectedItems.reduce((total,item) => total + item.price * item.qty,0)
+    // const isSelected = (item) =>{
+    //     return selectedItems.some(selectedItem => selectedItem.id === item.id &&selectedItem.color===item.color)
+    // } 
+    // const subtotal = cartItems.reduce((total,item)=>{
+    //     if(isSelected(item)){
+    //         return total+item.price*item.qty;
+    //     }
+    //     return total;
+    // },0)
 
     return (
         <>
@@ -91,7 +104,7 @@ const Cart = () => {
                             className="flex items-center justify-between p-4 border-b"
                         >
                             <div className="flex items-center mb-2">
-                            <input type="checkbox" checked={item.selected || false} onChange={()=>handleToggleSelect(item.id,item.color)} className="mr-2"/>
+                            {/* <input type="checkbox" checked={item.selected || false} onChange={()=>handleToggleSelect(item)} className="mr-2"/> */}
                             <img
                                 src={import.meta.env.BASE_URL+item.img}
                                 alt={item.name}
@@ -114,7 +127,7 @@ const Cart = () => {
                             <div className="ml-4 flex items-center">
                                 <button
                                     onClick={() =>
-                                        handleDecrement(item.cartId)
+                                        handleDecrement(item.productId, item.color)
                                     }
                                     className="bg-gray-300 text-black px-2 py-1 rounded"
                                 >
@@ -123,7 +136,7 @@ const Cart = () => {
                                 </button>
                                 <input
                                     type="number"
-                                    value={item.qty}
+                                    value={item.quantity}
                                     // onChange={(e) =>
                                     //     handleQuantityChange(
                                     //         item.id,
@@ -137,7 +150,7 @@ const Cart = () => {
                                 />
                                 <button
                                     onClick={() =>
-                                        handleIncrement(item.id, item.color)
+                                        handleIncrement(item.productId, item.color)
                                     }
                                     className="bg-gray-300 text-black px-2 py-1 rounded"
                                 >
@@ -148,7 +161,7 @@ const Cart = () => {
                             <Button
                                 className="text-red-500 hover:text-red-700 ml-4"
                                 onClick={() =>
-                                    handleRemove(item.id, item.color)
+                                    handleRemove(item.productId, item.color)
                                 }
                             >
                                 Remove
@@ -162,13 +175,13 @@ const Cart = () => {
                     <h2 className="text-xl font-semibold mb-4">
                         Order Summary
                     </h2>
-                    <div className="flex justify-between mb-2">
+                    {/* <div className="flex justify-between mb-2">
                         <span>Subtotal</span>
                         <span>
                             $
                             {subtotal.toFixed(2)}
                         </span>
-                    </div>
+                    </div> */}
                     <Link to="/checkout">
                         <button className="flex bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">
                             Checkout

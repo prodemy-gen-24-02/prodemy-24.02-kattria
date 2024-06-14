@@ -43,23 +43,6 @@ const Detail = () => {
 
     //const products = data.find(p=>p.id===parseInd(id));
 
-    // const handleAddToCart = () => {
-    //     {
-    //         user?.role === "user" ? (
-    //             dispatch(
-    //                 addItem({
-    //                     ...product,
-    //                     image: mainImage,
-    //                     color: selectedColor,
-    //                     quantity: quantity,
-    //                 })
-    //             ),
-    //             window.alert("Produk berhasil di tambahkan!")
-    //         ) : (
-    //             navigate('/login')
-    //         );
-    //     }
-    // };
     const handleAddToCart = async () => {
         const payload = {
             productId:product.id,
@@ -67,10 +50,10 @@ const Detail = () => {
             img:mainImage,
             color:selectedColor,
             price:product.price,
-            qty: quantity,
+            quantity,
         }
         const foundItem = cartItems.find((item)=> item.productId === payload.productId && item.color === payload.color);
-        console.log(foundItem)
+        //console.log(foundItem)
         {
             user?.role === "user" ? (((foundItem) ? (
                 payload.qty+=foundItem.qty,

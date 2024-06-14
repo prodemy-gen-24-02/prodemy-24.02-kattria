@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     items: [],
+    selectedItem:[],
 }
 
 const cartSlice = createSlice({
@@ -23,6 +24,7 @@ const cartSlice = createSlice({
         },
         removeItem: (state, action) => {
             state.items = state.items.filter(item => (item.id !== action.payload.id || item.color !== action.payload.color));
+            // state.selectedItem = state.selectedItem.filter(item => (item.id !== action.payload.id || item.color !== action.payload.color));
         },
         incrementQuantity : (state, action) => {
             const item = state.items.find(item => item.id === action.payload.id && item.color === action.payload.color);
@@ -43,9 +45,12 @@ const cartSlice = createSlice({
             }
         },
         toggleSelect: (state,action) => {
-            const item = state.items.find(item => item.id === action.payload.id && item.color===action.payload.color );
-            if (item){
-                item.selected = !item.selected;
+            const {id,color} = action.payload;
+            const exists = state.selectedItem.find(item => item.id === id && item.color===color );
+            if (exists){
+                state.selectedItem= state.selectedItem.find(item => !(item.id === id && item.color===color ));
+            } else{
+                state.selectedItem.push({id,color})
             }
         },
         // clearCart: (state) => {
