@@ -11,9 +11,23 @@ const initialState = {
     isLoggedIn: token !== "",
 };
 
+function getTokenData (){
+    const getToken = localStorage.getItem('token');
+    const getUser = localStorage.getItem('user');
+    if (getToken){
+        return  {
+            token:getToken,
+            user:JSON.parse(getUser)
+        }
+    }
+    return{...initialState}
+}
+
+
+
 export const authSlice = createSlice({
     name: "auth",
-    initialState,
+    initialState: getTokenData(),
     reducers: {
         loginSuccess: (state, action) => {
             state.token = action.payload.accessToken;

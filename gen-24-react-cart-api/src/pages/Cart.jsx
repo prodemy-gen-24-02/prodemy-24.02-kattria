@@ -1,5 +1,5 @@
-import React from "react";
-import Button from "./Button";
+import React, { useEffect } from "react";
+import Button from "../components/Button";
 import Navbar from "../layout/Navbar";
 import Header from "../layout/Header";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,9 +8,11 @@ import {
     decrementQuantity,
     incrementQuantity,
     removeItem,
+    setCartItems,
     toggleSelect,
     updateQuantity,
-} from "../redux/cartSlice";
+} from "../store/reducer/cartSlice";
+import axios from "axios";
 
 const Cart = () => {
     // const { cartItems, removeFromCart, updateQuantity } = useCart();
@@ -28,21 +30,48 @@ const Cart = () => {
     //         dispatch(updateQuantity({ id, color, quantity:newQuantity }));
         
     // };
-    const handleIncrement = (id, color) => {
-        dispatch(incrementQuantity({ id, color }));
+    // const getCartItems = async ()=>{
+    //     await axios.get('http:localhost:3000/cart').then((res)=>{dispatch(setCartItems(res.data))})
+    // }
+    // useEffect(()=>{
+    //     getCartItems()
+    // },[])
+
+    const handleIncrement = async (productId, color) => {
+        const foundItem = cartItems.find((item)=> item.productId === productId && item.color === color);
+        console.log(foundItem.cartId);
+        const payload ={
+            ...foundItem, qty:qty+=foundItem.qty
+        }
+        await axios.put(`http://localhost:3000/cart/${foundItem.id}`,payload)
+        .then((res)=>{dispatch(incrementQuantity(res.data));
+
+        })
+        
     };
-    const handleDecrement = (id, color) => {
-        dispatch(decrementQuantity({ id, color }));
+    const handleDecrement = async(productId, color) => {
+        const foundItem = cartItems.find((item)=> item.productId === productId && item.color === color);
+        console.log(foundItem);
+        const payload ={
+            ...foundItem, qty:foundItem.qty-1
+        }
+        await axios.put(`http://localhost:3000/cart/${foundItem.id}`,payload)
+        .then((res)=>{dispatch(decrementQuantity(res.data));
+        })
     };
-    const handleRemove = (id, color) => {
-        dispatch(removeItem({ id, color }));
+    const handleRemove = async (productId, color) => {
+        const foundItem = cartItems.find((item)=> item.productId === productId && item.color === color);
+        console.log(foundItem);
+        await axios.delete(`http://localhost:3000/cart/${productId}`)
+        .then((res)=>{dispatch(removeItem(res.data));
+        })
     };
     const handleToggleSelect=(id,color)=>{
         dispatch(toggleSelect({id,color}))
     }
 
     const selectedItems = cartItems.filter(item =>item.selected);
-    const subtotal = selectedItems.reduce((total,item) => total + item.price * item.quantity,0)
+    const subtotal = selectedItems.reduce((total,item) => total + item.price * item.qty,0)
 
     return (
         <>
@@ -64,7 +93,7 @@ const Cart = () => {
                             <div className="flex items-center mb-2">
                             <input type="checkbox" checked={item.selected || false} onChange={()=>handleToggleSelect(item.id,item.color)} className="mr-2"/>
                             <img
-                                src={item.image}
+                                src={import.meta.env.BASE_URL+item.img}
                                 alt={item.name}
                                 className="w-20 h-20 object-cover"
                             />
@@ -85,7 +114,7 @@ const Cart = () => {
                             <div className="ml-4 flex items-center">
                                 <button
                                     onClick={() =>
-                                        handleDecrement(item.id, item.color)
+                                        handleDecrement(item.cartId)
                                     }
                                     className="bg-gray-300 text-black px-2 py-1 rounded"
                                 >
@@ -94,7 +123,7 @@ const Cart = () => {
                                 </button>
                                 <input
                                     type="number"
-                                    value={item.quantity}
+                                    value={item.qty}
                                     // onChange={(e) =>
                                     //     handleQuantityChange(
                                     //         item.id,

@@ -371,5 +371,70 @@
       "name": "New Product",
       "id": 9
     }
+  ],
+  "cart": [
+    {
+      "productId": 1,
+      "name": "Bose BT Earphones",
+      "img": "src/assets/9.png",
+      "color": "Green",
+      "price": 100,
+      "qty": 3,
+      "id": 1
+    },
+    {
+      "productId": 1,
+      "name": "Bose BT Earphones",
+      "img": "src/assets/7.png",
+      "color": "White",
+      "price": 100,
+      "qty": 3,
+      "id": 2
+    },
+    {
+      "productId": 1,
+      "name": "Bose BT Earphones",
+      "img": "src/assets/9.png",
+      "color": "Green",
+      "price": 100,
+      "qty": 4,
+      "id": 3
+    },
+    {
+      "productId": 1,
+      "name": "Bose BT Earphones",
+      "img": "src/assets/9.png",
+      "color": "Green",
+      "price": 100,
+      "qty": 2,
+      "id": 4
+    },
+    {
+      "productId": 1,
+      "name": "Bose BT Earphones",
+      "img": "src/assets/9.png",
+      "color": "Green",
+      "price": 100,
+      "qty": 1,
+      "id": 5
+    },
+    {
+      "productId": 3,
+      "name": "Zebronics Zeb-Thunder",
+      "img": "src/assets/4.png",
+      "color": "Green",
+      "price": 500,
+      "qty": 1,
+      "id": 6
+    },
+    {
+      "productId": 3,
+      "name": "Zebronics Zeb-Thunder",
+      "img": "src/assets/4.png",
+      "color": "Green",
+      "price": 500,
+      "qty": 2,
+      "id": 7
+    }
   ]
 }

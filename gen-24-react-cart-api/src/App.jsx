@@ -9,18 +9,15 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Admin from "./pages/Admin";
 import DashboardForm from "./components/Admin/DashboardForm";
-import Cart from "./components/Cart";
-import Checkout from "./components/Checkout";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import DashboardCategory from "./components/Admin/Category/DashboardCategory";
 import DashboardProduct from "./components/Admin/Product/DashboardProduct";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import { useSelector } from "react-redux";
 
-
-
 function App() {
-  
-const { user } = useSelector((state) => state.auth);
+    const { user } = useSelector((state) => state.auth);
     return (
         //<CartProvider>
         <Router>
@@ -53,12 +50,16 @@ const { user } = useSelector((state) => state.auth);
                     element={<DashboardForm />}
                 />
 
-
-                <Route path="/cart" element={ user?.role === "user" ? (
+                <Route
+                    path="/cart"
+                    element={
+                        user?.role === "user" ? (
                             <Cart />
                         ) : (
                             <Navigate to="/login" />
-                        )} />
+                        )
+                    }
+                />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/login" element={<Login />} />
             </Routes>

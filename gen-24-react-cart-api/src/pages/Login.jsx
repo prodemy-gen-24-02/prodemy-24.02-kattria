@@ -4,9 +4,7 @@ import *as yup from 'yup'
 import { useForm } from "react-hook-form";
 import{ useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { login } from "../redux/authSlice";
-import axios from "axios";
-import { setUser } from "../redux/authTokenSlice";
+import { login } from "../store/reducer/authSlice";
 
 const schema = yup.object().shape({
     email:yup.string().email('Invalid email format').required('Email is required'),

@@ -9,7 +9,8 @@ import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 import Button from "../components/Button";
 import Layout from "../layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../redux/cartSlice";
+import { addItem } from "../store/reducer/cartSlice";
+import axios from "axios";
 
 const Detail = () => {
     const { id } = useParams();
@@ -21,6 +22,8 @@ const Detail = () => {
     );
 
     const { user } = useSelector((state) => state.auth);
+    const cartItems = useSelector((state) => state.cart.items);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -40,22 +43,54 @@ const Detail = () => {
 
     //const products = data.find(p=>p.id===parseInd(id));
 
-    const handleAddToCart = () => {
-        {
-            user?.role === "user" ? (
-                dispatch(
-                    addItem({
-                        ...product,
-                        image: mainImage,
-                        color: selectedColor,
-                        quantity: quantity,
-                    })
-                ),
-                window.alert("Produk berhasil di tambahkan!")
-            ) : (
-                navigate('/login')
-            );
+    // const handleAddToCart = () => {
+    //     {
+    //         user?.role === "user" ? (
+    //             dispatch(
+    //                 addItem({
+    //                     ...product,
+    //                     image: mainImage,
+    //                     color: selectedColor,
+    //                     quantity: quantity,
+    //                 })
+    //             ),
+    //             window.alert("Produk berhasil di tambahkan!")
+    //         ) : (
+    //             navigate('/login')
+    //         );
+    //     }
+    // };
+    const handleAddToCart = async () => {
+        const payload = {
+            productId:product.id,
+            name:product.name,
+            img:mainImage,
+            color:selectedColor,
+            price:product.price,
+            qty: quantity,
         }
+        const foundItem = cartItems.find((item)=> item.productId === payload.productId && item.color === payload.color);
+        console.log(foundItem)
+        {
+            user?.role === "user" ? (((foundItem) ? (
+                payload.qty+=foundItem.qty,
+                await axios
+                .put(` http://localhost:3000/cart/${foundItem.id}`,payload)
+                .then((res)=>{
+                 dispatch(addItem(res.data));
+                }),
+                window.alert("Produk berhasil di tambahkan!")
+            ) : 
+            await axios
+            .post("http://localhost:3000/cart",payload)
+            .then((res)=>{
+             dispatch(addItem(res.data));
+            }),
+            window.alert("Produk berhasil di tambahkan!"))) : 
+                
+             ( navigate('/login'));
+        }
+        console.log(foundItem)
     };
 
     useEffect(() => {
