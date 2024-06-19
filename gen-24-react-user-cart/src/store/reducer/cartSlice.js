@@ -1,40 +1,43 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
     items: [],
-    selectedItem: [],
+    // selectedItem: [],
 };
 
 const cartSlice = createSlice({
     name: "cart",
-    initialState: { ...initialState },
+    initialState,
     reducers: {
         setCartItems: (state, action) => {
             state.items = action.payload;
         },
         addItem: (state, action) => {
-            const newItem = action.payload;
+            //const newItem = action.payload;
             const existingItem = state.items.find(
-                (item) => item.id === newItem.id && item.color === newItem.color
+                (item) =>
+                    item.id === action.payload.id &&
+                    item.color === action.payload.color
             );
             if (existingItem) {
-                // state.items.forEach((item) => {
-                existingItem.quantity += newItem.quantity;
-                // })
+                state.items.forEach((item) => {
+                    existingItem.quantity += action.payload.quantity;
+                });
             } else {
-                state.items.push({ newItem });
+                state.items.push({ ...action.payload });
             }
         },
         removeItem: (state, action) => {
             const { id, color } = action.payload;
             state.items = state.items.filter(
-                (item) => item.id !== id || item.color !== color
+                (item) =>!( item.id === id && item.color === color)
             );
-            state.selectedItem = state.selectedItem.filter(
-                (item) =>
-                    item.id !== action.payload.id ||
-                    item.color !== action.payload.color
-            );
+            // state.selectedItem = state.selectedItem.filter(
+            //     (item) =>
+            //         !(item.id === action.payload.id &&
+            //         item.color === action.payload.color)
+            // );
         },
         incrementQuantity: (state, action) => {
             const item = state.items.find(
@@ -65,22 +68,22 @@ const cartSlice = createSlice({
                 item.quantity = quantity;
             }
         },
-        toggleSelect: (state, action) => {
-            const { id, color } = action.payload;
-            const exists = state.selectedItem.find(
-                (item) => item.id === id && item.color === color
-            );
-            if (exists) {
-                state.selectedItem = state.selectedItem.find(
-                    (item) => !(item.id === id && item.color === color)
-                );
-            } else {
-                state.selectedItem.push({ id, color });
-            }
-        },
+        // toggleSelect: (state, action) => {
+        //     const { id, color } = action.payload;
+        //     const exists = state.selectedItem.find(
+        //         (item) => item.id === id && item.color === color
+        //     );
+        //     if (exists) {
+        //         state.selectedItem = state.selectedItem.filter(
+        //             (item) => !(item.id === id && item.color === color)
+        //         );
+        //     } else {
+        //         state.selectedItem.push({ id, color });
+        //     }
+        // },
         clearCart: (state) => {
             state.items = [];
-            state.selectedItem = [];
+            // state.selectedItem = [];
         },
     },
 });
@@ -92,7 +95,7 @@ export const {
     incrementQuantity,
     decrementQuantity,
     updateQuantity,
-    toggleSelect,
+    // toggleSelect,
     clearCart,
 } = cartSlice.actions;
 
@@ -102,33 +105,8 @@ export const fetchCart = (userId) => async (dispatch) => {
         .then((res) => dispatch(setCartItems(res.data)));
 };
 
-export const addtToCart = (item, userId) => async (dispatch, getState) => {
-    const { items } = getState().cart;
-    const existingItem = items.find(
-        (cartItem) => cartItem.id === item.id && cartItem.color === item.color
-    );
-
-    if (existingItem) {
-        const updateItem = {
-            ...existingItem,
-            quantity: existingItem.quantity + item.quantity,
-        };
-        await axios.put(
-            `http://localhost:3000/cart/${existingItem.id}`,
-            updateItem
-        );
-        dispatch(addItem(updateItem));
-    } else {
-        const response = await axios.post(`http://localhost:3000/cart`, {
-            ...item,
-            userId,
-        });
-        dispatch(addItem(response.data));
-    }
-};
-
 export const removeFromCart = (id, color) => async (dispatch) => {
-    await axios.delete(`hattp:localhost:3000/cart/${id}`);
+    await axios.delete(`http:localhost:3000/cart/${id}`);
     dispatch(removeItem({ id, color }));
 };
 

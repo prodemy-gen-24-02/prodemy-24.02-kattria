@@ -9,7 +9,7 @@ import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 import Button from "../components/Button";
 import Layout from "../layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../store/reducer/cartSlice";
+import { addItem} from "../store/reducer/cartSlice";
 import axios from "axios";
 
 const Detail = () => {
@@ -43,37 +43,38 @@ const Detail = () => {
 
     //const products = data.find(p=>p.id===parseInd(id));
 
-    const handleAddToCart = async () => {
-        const payload = {
+    const handleAddToCart =  () => {
+
+        if(!user) {
+            alert ('Login!')
+            return;
+        }
+       
+        const item = {
             productId:product.id,
             name:product.name,
             img:mainImage,
             color:selectedColor,
             price:product.price,
             quantity,
+            userId:user.id,
         }
-        const foundItem = cartItems.find((item)=> item.productId === payload.productId && item.color === payload.color);
-        //console.log(foundItem)
-        {
-            user?.role === "user" ? (((foundItem) ? (
-                payload.qty+=foundItem.qty,
-                await axios
-                .put(` http://localhost:3000/cart/${foundItem.id}`,payload)
-                .then((res)=>{
-                 dispatch(addItem(res.data));
-                }),
-                window.alert("Produk berhasil di tambahkan!")
-            ) : 
-            await axios
-            .post("http://localhost:3000/cart",payload)
-            .then((res)=>{
-             dispatch(addItem(res.data));
-            }),
-            window.alert("Produk berhasil di tambahkan!"))) : 
-                
-             ( navigate('/login'));
+        //  dispatch(addToCart(item, user.id))
+         const foundItem = cartItems.find((cartItem)=> cartItem.productId === item.productId && cartItem.color === item.color);
+         console.log("ini cart",foundItem)
+         console.log("ini item",item.productId)
+        if (foundItem){
+            item.quantity += foundItem.quantity;
+            axios.put(`http://localhost:3000/cart/${foundItem.id}`, item).then((res)=>{
+                dispatch(addItem(res.data));
+            })
+            window.alert("Product berhasil di tambahkan")
+        } 
+        else{
+            axios.post("http://localhost:3000/cart", item).then((res)=>{dispatch(addItem(res.data))})
+            window.alert("Product berhasil di tambahkan")
         }
-        console.log(foundItem)
+       
     };
 
     useEffect(() => {

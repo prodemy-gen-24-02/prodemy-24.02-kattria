@@ -5,8 +5,13 @@ import Navbar from "../layout/Navbar";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-    const items = useSelector((state) => state.cart.items.filter(item=>item.selected));
-    const selectedItems = items.filter(item=>item.selected);
+
+    const cartItems = useSelector((state) => state.cart.items);
+    // const selectedItems = useSelector ((state)=>state.cart.selectedItems)
+
+    // const selectedCartItems = cartItems.filter(item => selectedItems.some(selectedItem => selectedItem.id === item.id && selectedItem.color === item.color))
+
+    const subtotal = cartItems.reduce((total,item) => total + item.price * item.quantity, 0)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -18,12 +23,12 @@ const Checkout = () => {
     //     navigate("/");
     // };
 
-    const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0
-    );
-    const tax = subtotal * 0.1;
-    const couponDiscount = 0;
-    const shippingCost = 0;
-    const total = subtotal + tax - couponDiscount + shippingCost;
+    // const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0
+    // );
+     const tax = subtotal * 0.1;
+     const couponDiscount = 0;
+     const shippingCost = 0;
+     const total = subtotal + tax - couponDiscount + shippingCost;
 
     return (
         <>
@@ -36,13 +41,13 @@ const Checkout = () => {
                             Review Item And Shipping
                         </h2>
                         <ul>
-                            {selectedItems.map((item) => (
+                            {cartItems.map((item) => (
                                 <li
                                     key={`${item.id}-${item.color}`}
                                     className="flex mb-2 items-center "
                                 >
                                     <img
-                                        src={item.image}
+                                        src={import.meta.env.BASE_URL+item.img}
                                         alt={item.name}
                                         className="w-20 h-20 rounded-md bg-slate-300"
                                     />
