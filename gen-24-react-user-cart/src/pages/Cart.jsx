@@ -2,21 +2,18 @@ import React, { useEffect } from "react";
 import Button from "../components/Button";
 import Navbar from "../layout/Navbar";
 import Header from "../layout/Header";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
     decrementQuantity,
     fetchCart,
     incrementQuantity,
-    removeFromCart,
     removeItem,
-    setCartItems,
-    updateQuantity,
 } from "../store/reducer/cartSlice";
 import axios from "axios";
 
 const Cart = () => {
-    const cartItems = useSelector((state) => state.cart.items || []);
+    const cartItems = useSelector((state) => state.cart.items);
     //console.log(cartItems);
     // const selectedItems = useSelector(
     //     (state) => state.cart.selectedItems || []
@@ -59,6 +56,7 @@ const Cart = () => {
         const foundItem = cartItems.find(
             (item) => item.productId === productId && item.color === color
         );
+        console.log(foundItem);
         const payload = {
             ...foundItem,
             quantity: foundItem.quantity - 1,
@@ -69,8 +67,20 @@ const Cart = () => {
                 dispatch(decrementQuantity(res.data));
             });
     };
-    const handleRemove = (item) => {
-        dispatch(removeFromCart(item.id, item.color));
+    const handleRemove = async (productId, color) => {
+        const foundItem = cartItems.find(
+            (item) => item.productId === productId && item.color === color
+        );
+         console.log(foundItem);
+        await axios
+            .delete(`http://localhost:3000/cart/${foundItem.id}`)
+            // .get(`http://localhost:3000/cart/${foundItem.id}`)
+            .then((res) => {
+                 dispatch(removeItem(res.data));
+                // console.log(res.data);
+
+            });
+       
     };
     // const handleToggleSelect = (item) => {
     //     dispatch(toggleSelect(item));
@@ -174,7 +184,9 @@ const Cart = () => {
                                     </div>
                                     <Button
                                         className="text-red-500 hover:text-red-700 ml-4"
-                                        onClick={() => handleRemove(item)}
+                                        onClick={() => handleRemove( 
+                                            item.productId,
+                                            item.color)}
                                     >
                                         Remove
                                     </Button>

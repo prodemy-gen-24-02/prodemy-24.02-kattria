@@ -31,7 +31,7 @@ const cartSlice = createSlice({
         removeItem: (state, action) => {
             const { id, color } = action.payload;
             state.items = state.items.filter(
-                (item) =>!( item.id === id && item.color === color)
+                (item) =>( item.id === id && item.color === color)
             );
             // state.selectedItem = state.selectedItem.filter(
             //     (item) =>
@@ -103,11 +103,6 @@ export const fetchCart = (userId) => async (dispatch) => {
     await axios
         .get(`http://localhost:3000/cart?userId=${userId}`)
         .then((res) => dispatch(setCartItems(res.data)));
-};
-
-export const removeFromCart = (id, color) => async (dispatch) => {
-    await axios.delete(`http:localhost:3000/cart/${id}`);
-    dispatch(removeItem({ id, color }));
 };
 
 export default cartSlice.reducer;

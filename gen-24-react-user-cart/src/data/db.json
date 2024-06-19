@@ -386,19 +386,9 @@
       "img": "src/assets/7.png",
       "color": "White",
       "price": 500,
-      "quantity": 4,
+      "quantity": 3,
       "userId": 1,
       "id": 1
-    },
-    {
-      "productId": 1,
-      "name": "Bose BT Earphones",
-      "img": "src/assets/9.png",
-      "color": "Green",
-      "price": 100,
-      "quantity": 1,
-      "userId": 3,
-      "id": 2
     },
     {
       "productId": 2,
